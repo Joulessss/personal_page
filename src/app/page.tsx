@@ -119,41 +119,43 @@ export default function Home() {
             </Button>
           </RevealFx>
         </Column>
-        <Row fillWidth gap="0" s={{ direction: "column" }} className="home-matrix-grid">
-          {tiles.map((tile, index) => (
-            <Flex
-              key={`${tile.title}-${index}`}
-              fillWidth
-              padding="0"
-              border="neutral-alpha-weak"
-              radius="l"
-              overflow="hidden"
-              className={`home-matrix-tile ${tile.className}`}
-            >
-              <Column fillWidth className="home-matrix-content">
-                <Text className="home-matrix-badge" variant="label-default-s">
-                  {tile.badge}
-                </Text>
-                <Heading
-                  as="h3"
-                  align="start"
-                  variant="heading-strong-l"
-                  className="home-matrix-title"
-                >
-                  {tile.title}
-                </Heading>
-                <Text
-                  variant="body-default-l"
-                  align="start"
-                  onBackground="neutral-weak"
-                  className="home-matrix-description"
-                >
-                  {tile.description}
-                </Text>
-              </Column>
-            </Flex>
-          ))}
-        </Row>
+        <RevealFx fillWidth translateY="8" delay={0.35}>
+          <Row fillWidth gap="0" s={{ direction: "column" }} className="home-matrix-grid">
+            {tiles.map((tile, index) => (
+              <Flex
+                key={`${tile.title}-${index}`}
+                fillWidth
+                padding="0"
+                border="neutral-alpha-weak"
+                radius="l"
+                overflow="hidden"
+                className={`home-matrix-tile ${tile.className}`}
+              >
+                <Column fillWidth className="home-matrix-content">
+                  <Text className="home-matrix-badge" variant="label-default-s">
+                    {tile.badge}
+                  </Text>
+                  <Heading
+                    as="h3"
+                    align="start"
+                    variant="heading-strong-l"
+                    className="home-matrix-title"
+                  >
+                    {tile.title}
+                  </Heading>
+                  <Text
+                    variant="body-default-l"
+                    align="start"
+                    onBackground="neutral-weak"
+                    className="home-matrix-description"
+                  >
+                    {tile.description}
+                  </Text>
+                </Column>
+              </Flex>
+            ))}
+          </Row>
+        </RevealFx>
       </Column>
     </Column>
   );

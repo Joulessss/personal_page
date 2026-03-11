@@ -1,7 +1,8 @@
-import { Column, Heading, Meta, Schema } from "@once-ui-system/core";
+import { Column, Meta, Schema } from "@once-ui-system/core";
 import { baseURL } from "@/resources";
-import { Projects } from "@/components/work/Projects";
-import { getServerContent, getServerLocale } from "@/resources/server-localization";
+import { getServerContent } from "@/resources/server-localization";
+import { getPosts } from "@/utils/utils";
+import { WorkContent } from "@/components/work/WorkContent";
 
 export async function generateMetadata() {
   const { work } = await getServerContent();
@@ -15,8 +16,9 @@ export async function generateMetadata() {
 }
 
 export default async function Work() {
-  const { about, person, work, ui } = await getServerContent();
-  const locale = await getServerLocale();
+  const { about, person, work } = await getServerContent();
+  const postsEn = getPosts(["src", "app", "work", "projects"], "en");
+  const postsEs = getPosts(["src", "app", "work", "projects"], "es");
 
   return (
     <Column maxWidth="m" paddingTop="24">
@@ -33,21 +35,7 @@ export default async function Work() {
           image: `${baseURL}${person.avatar}`,
         }}
       />
-      <Heading marginBottom="l" variant="heading-strong-xl" align="center">
-        {work.title}
-      </Heading>
-      <Heading as="h2" marginBottom="m" variant="heading-strong-l" align="start" marginLeft="l">
-        {ui.workPage.researchPapers}
-      </Heading>
-      <Projects category="research" locale={locale} />
-      <Heading as="h2" marginBottom="m" variant="heading-strong-l" align="start" marginLeft="l">
-        {ui.workPage.thesisDocuments}
-      </Heading>
-      <Projects category="thesis" locale={locale} />
-      <Heading as="h2" marginBottom="m" variant="heading-strong-l" align="start" marginLeft="l">
-        {ui.workPage.projects}
-      </Heading>
-      <Projects category="project" locale={locale} />
+      <WorkContent postsEn={postsEn} postsEs={postsEs} />
     </Column>
   );
 }

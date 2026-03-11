@@ -9,6 +9,7 @@ import {
   SmartLink,
   Text,
 } from "@once-ui-system/core";
+import { useLanguage } from "@/components/LanguageProvider";
 import { withBasePath } from "@/utils/withBasePath";
 
 interface ProjectCardProps {
@@ -37,6 +38,23 @@ export const ProjectCard: React.FC<ProjectCardProps> = ({
   category,
   hideHero,
 }) => {
+  const { locale } = useLanguage();
+  const labels =
+    locale === "es"
+      ? {
+          readCaseStudy: "Leer caso de estudio",
+          viewPublication: "Ver publicación",
+          viewThesis: "Ver tesis",
+          viewProject: "Ver proyecto",
+          viewGitHub: "Ver GitHub",
+        }
+      : {
+          readCaseStudy: "Read case study",
+          viewPublication: "View publication",
+          viewThesis: "View thesis",
+          viewProject: "View project",
+          viewGitHub: "View GitHub",
+        };
 
   const normalizedImages = images.map((image) => withBasePath(image));
   const normalizedAvatars = avatars.map((avatar) => ({ src: withBasePath(avatar.src) }));
@@ -86,7 +104,7 @@ export const ProjectCard: React.FC<ProjectCardProps> = ({
                   style={{ margin: "0", width: "fit-content" }}
                   href={href}
                 >
-                  <Text variant="body-default-s">Read case study</Text>
+                  <Text variant="body-default-s">{labels.readCaseStudy}</Text>
                 </SmartLink>
               )}
               {link && (
@@ -97,10 +115,10 @@ export const ProjectCard: React.FC<ProjectCardProps> = ({
                 >
                   <Text variant="body-default-s">
                     {category === "research"
-                      ? "View publication"
+                      ? labels.viewPublication
                       : category === "thesis"
-                        ? "View thesis"
-                        : "View project"}
+                        ? labels.viewThesis
+                        : labels.viewProject}
                   </Text>
                 </SmartLink>
               )}
@@ -110,7 +128,7 @@ export const ProjectCard: React.FC<ProjectCardProps> = ({
                   style={{ margin: "0", width: "fit-content" }}
                   href={repo}
                 >
-                  <Text variant="body-default-s">View GitHub</Text>
+                  <Text variant="body-default-s">{labels.viewGitHub}</Text>
                 </SmartLink>
               )}
             </Flex>
