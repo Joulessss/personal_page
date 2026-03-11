@@ -78,7 +78,7 @@ const personEn: Person = {
   firstName: "Juliana",
   lastName: "Quintana Rojas",
   name: "Juliana Quintana Rojas",
-  role: "PhD Candidate in Engineering | ML Engineer & Data Scientist",
+  role: "PhD Student in Engineering | ML Engineer, Data Scientist & Researcher",
   avatar: "/images/image_avatar.jpeg",
   email: "j.quintanar2@outlook.com",
   location: "America/Bogota",
@@ -87,7 +87,7 @@ const personEn: Person = {
 
 const personEs: Person = {
   ...personEn,
-  role: "Doctoranda en Ingeniería | Ingeniera de ML y Científica de Datos",
+  role: "Estudiante de doctorado en Ingeniería | Ingeniera de ML, científica de datos e investigadora",
   languages: ["Español", "Inglés"],
 };
 
@@ -142,7 +142,7 @@ const homeEn: Home = {
         </Text>
       </Row>
     ),
-    href: "/work/building-once-ui-a-customizable-design-system",
+    href: "/work/stochastic-cost-benefit-optimization-colombian-natural-gas-network",
   },
   subline: (
     <>
@@ -157,8 +157,8 @@ const homeEs: Home = {
   image: "/images/og/home.jpg",
   label: "Inicio",
   title: `Portafolio de ${personEs.name}`,
-  description: `Sitio web de portafolio mostrando mi trabajo como ${personEs.role}`,
-  headline: <>Impulsando decisiones más inteligentes con Data Science y Machine Learning.</>,
+  description: `Portafolio profesional donde presento mi trabajo como ${personEs.role}`,
+  headline: <>Decisiones más inteligentes con ciencia de datos y machine learning.</>,
   featured: {
     display: true,
     title: (
@@ -170,13 +170,13 @@ const homeEs: Home = {
         </Text>
       </Row>
     ),
-    href: "/work/building-once-ui-a-customizable-design-system",
+    href: "/work/stochastic-cost-benefit-optimization-colombian-natural-gas-network",
   },
   subline: (
     <>
-      Soy Juliana, investigadora e ingeniera que conecta modelado científico riguroso con flujos
-      modernos de ML, desde pipelines de datos hasta soluciones desplegadas, en energía,
-      alimentos y más.
+      Soy Juliana, investigadora e ingeniera. Combino modelado científico riguroso con flujos
+      modernos de ML, desde la construcción de pipelines de datos hasta el despliegue de
+      soluciones en energía, alimentos y otros sectores.
     </>
   ),
 };
@@ -194,7 +194,7 @@ const aboutEn: About = {
     display: true,
   },
   calendar: {
-    display: true,
+    display: false,
     link: "https://cal.com",
   },
   intro: {
@@ -202,7 +202,7 @@ const aboutEn: About = {
     title: "Introduction",
     description: (
       <>
-        Juliana is a Bogotá-based PhD candidate in Engineering and ML engineer/data scientist. She
+        Juliana is a Bogotá-based PhD student in Engineering and ML engineer/data scientist. She
         builds end-to-end machine learning solutions, from exploratory analysis and feature
         engineering to deployment-ready workflows, with domain-informed interpretability for
         strategic decision-making across energy, food, and complex industrial systems.
@@ -218,7 +218,7 @@ const aboutEn: About = {
       {
         company: "COPA — Universidad de los Andes",
         timeframe: "Aug 2025 - Present",
-        role: "ML Engineer & Researcher",
+        role: "ML Engineer, Data Scientist & Researcher",
         achievements: [
           <>
             Design and deploy end-to-end ML and statistical workflows to model stochastic and
@@ -258,7 +258,7 @@ const aboutEn: About = {
       {
         company: "GDPP — Universidad de los Andes",
         timeframe: "Oct 2023 - Jun 2025",
-        role: "ML Engineer & Researcher",
+        role: "ML Engineer, Data Scientist & Researcher",
         achievements: [
           <>
             Built hybrid ML frameworks integrating multimodal data sources to predict complex
@@ -412,11 +412,12 @@ const aboutEs: About = {
     title: "Introducción",
     description: (
       <>
-        Juliana es doctoranda en Ingeniería e ingeniera de ML/científica de datos en Bogotá.
-        Desarrolla soluciones end-to-end de machine learning, desde análisis exploratorio y
-        feature engineering hasta flujos listos para despliegue, incorporando interpretabilidad
-        guiada por dominio para apoyar decisiones estratégicas en energía, alimentos y sistemas
-        industriales complejos.
+        Juliana es estudiante de doctorado en Ingeniería y se desempeña como ingeniera de ML y
+        científica de datos en Bogotá. Diseña soluciones de machine learning de punta a punta,
+        desde el análisis exploratorio y la ingeniería de variables hasta flujos listos para
+        producción. Además, integra conocimiento de dominio para que los resultados sean
+        interpretables y útiles en la toma de decisiones estratégicas en energía, alimentos y
+        sistemas industriales complejos.
 
       </>
     ),
@@ -429,12 +430,12 @@ const aboutEs: About = {
       {
         company: "COPA — Universidad de los Andes",
         timeframe: "Ago 2025 - Presente",
-        role: "Ingeniera de ML e Investigadora",
+        role: "Ingeniera de ML, científica de datos e investigadora",
         achievements: [
           <>
-            Diseño y despliegue de flujos end-to-end de ML y estadística para modelar procesos
-            energéticos estocásticos y continuos, incluyendo pipelines de pronóstico para uso en
-            producción.
+            Diseño y despliegue de flujos de trabajo de ML y estadística de punta a punta para
+            modelar procesos energéticos estocásticos y continuos, incluyendo pipelines de
+            pronóstico para uso en producción.
           </>,
           <>
             Integración de conocimiento de dominio en la interpretabilidad de modelos para apoyar
@@ -445,7 +446,7 @@ const aboutEs: About = {
             análisis de riesgo y optimización de seguridad en sistemas energéticos.
           </>,
           <>
-            Desarrollo de herramientas cuantitativas de soporte a decisiones y elaboración de
+            Desarrollo de herramientas cuantitativas de apoyo a la toma de decisiones y elaboración de
             reportes técnicos y científicos para audiencias académicas e industriales.
           </>,
         ],
@@ -470,15 +471,15 @@ const aboutEs: About = {
       {
         company: "GDPP — Universidad de los Andes",
         timeframe: "Oct 2023 - Jun 2025",
-        role: "Ingeniera de ML e Investigadora",
+        role: "Ingeniera de ML, científica de datos e investigadora",
         achievements: [
           <>
-            Construcción de marcos híbridos de ML con integración de datos multimodales para
+            Construcción de marcos híbridos de ML que integran datos multimodales para
             predecir perfiles complejos de calidad de producto con enfoque escalable.
           </>,
           <>
-            Diseño y automatización de pipelines end-to-end: recolección y aumento de datos,
-            feature engineering y validación rigurosa de modelos.
+            Diseño y automatización de pipelines de punta a punta: recolección y aumento de datos,
+            ingeniería de variables y validación rigurosa de modelos.
           </>,
           <>
             Integración de conocimiento de dominio en diseño e interpretabilidad de modelos para
@@ -563,7 +564,7 @@ const aboutEs: About = {
         skills: [
           { name: "Aprendizaje supervisado", icon: "machineLearning" },
           { name: "Aprendizaje no supervisado", icon: "machineLearning" },
-          { name: "Data augmentation", icon: "experimentalDesign" },
+          { name: "Aumento de datos", icon: "experimentalDesign" },
           { name: "Marcos híbridos de ML", icon: "machineLearning" },
           { name: "Modelado predictivo", icon: "predictiveModeling" },
           { name: "Series de tiempo", icon: "statisticalAnalysis" },
@@ -576,7 +577,7 @@ const aboutEs: About = {
         name: "Ciencia de datos y analítica",
         skills: [
           { name: "Diseño de pipelines", icon: "dataScience" },
-          { name: "Feature engineering", icon: "dataScience" },
+          { name: "Ingeniería de variables", icon: "dataScience" },
           { name: "Validación de modelos", icon: "experimentalDesign" },
           { name: "Visualización de datos", icon: "dataViz" },
           { name: "Sistemas de soporte a decisiones", icon: "grid" },
@@ -597,8 +598,8 @@ const aboutEs: About = {
       {
         name: "Automatización e integración de flujos",
         skills: [
-          { name: "Automatización ML end-to-end", icon: "rocket" },
-          { name: "Orquestación de workflows", icon: "rocket" },
+          { name: "Automatización de ML de punta a punta", icon: "rocket" },
+          { name: "Orquestación de flujos de trabajo", icon: "rocket" },
           { name: "Integración operativa de ML", icon: "grid" },
         ],
       },
@@ -709,7 +710,7 @@ const uiEn: UiCopy = {
     projectLabel: "Project",
     thesisLabel: "Thesis",
     tiles: {
-      roleTitle: "PhD Candidate | ML Engineer",
+      roleTitle: "PhD Student | ML Engineer, Data Scientist & Researcher",
       roleBody: "End-to-end ML workflows, from data pipelines to deployed decision-support tools.",
       phdTitle: "PhD in Engineering",
       phdBody: "Doctoral research focused on energy systems, reliability, and risk-informed decision-making.",
@@ -768,14 +769,14 @@ const uiEs: UiCopy = {
     projectLabel: "Proyecto",
     thesisLabel: "Tesis",
     tiles: {
-      roleTitle: "Doctoranda | Ingeniera de ML",
-      roleBody: "Flujos end-to-end de ML, desde pipelines de datos hasta herramientas desplegadas de soporte a decisiones.",
+      roleTitle: "Estudiante de doctorado | Ingeniera de ML, científica de datos e investigadora",
+      roleBody: "De los datos al despliegue: creo flujos de trabajo de ML para apoyar decisiones.",
       phdTitle: "Doctorado en Ingeniería",
       phdBody: "Investigación doctoral enfocada en sistemas energéticos, confiabilidad y toma de decisiones basada en riesgo.",
-      skillsTitle: "Habilidades Clave",
+      skillsTitle: "Habilidades clave",
       skillsBody: "Aprendizaje automático, modelado predictivo, diseño experimental y visualización de datos.",
       mottoTitle: "Motivación",
-      mottoBody: "Convertir datos en decisiones que mejoran procesos del mundo real.",
+      mottoBody: "Convierto datos en decisiones que mejoran procesos reales.",
     },
   },
   blog: {
@@ -793,7 +794,7 @@ const uiEs: UiCopy = {
     relatedProjects: "Proyectos relacionados",
   },
   workPage: {
-    researchPapers: "Articulos de investigacion",
+    researchPapers: "Artículos de investigación",
     thesisDocuments: "Tesis",
     projects: "Proyectos",
   },

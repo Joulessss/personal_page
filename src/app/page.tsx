@@ -70,7 +70,7 @@ export default async function Home() {
           image: `${baseURL}${person.avatar}`,
         }}
       />
-      <Column fillWidth horizontal="center" gap="m" maxWidth="xl">
+      <Column fillWidth horizontal="center" gap="m" maxWidth="l">
         <Column maxWidth="l" horizontal="center" align="center">
           {home.featured.display && (
             <RevealFx
