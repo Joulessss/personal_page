@@ -5,10 +5,17 @@ import { ProjectCard } from "@/components";
 interface ProjectsProps {
   range?: [number, number?];
   exclude?: string[];
+  category?: "research" | "project" | "thesis";
+  hideHero?: boolean;
+  locale?: "en" | "es";
 }
 
-export function Projects({ range, exclude }: ProjectsProps) {
-  let allProjects = getPosts(["src", "app", "work", "projects"]);
+export function Projects({ range, exclude, category, hideHero, locale = "en" }: ProjectsProps) {
+  let allProjects = getPosts(["src", "app", "work", "projects"], locale);
+
+  if (category) {
+    allProjects = allProjects.filter((post) => post.metadata.category === category);
+  }
 
   // Exclude by slug (exact match)
   if (exclude && exclude.length > 0) {
@@ -36,6 +43,9 @@ export function Projects({ range, exclude }: ProjectsProps) {
           content={post.content}
           avatars={post.metadata.team?.map((member) => ({ src: member.avatar })) || []}
           link={post.metadata.link || ""}
+          repo={post.metadata.repo || ""}
+          category={post.metadata.category}
+          hideHero={hideHero}
         />
       ))}
     </Column>

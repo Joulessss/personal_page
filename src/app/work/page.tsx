@@ -1,8 +1,10 @@
 import { Column, Heading, Meta, Schema } from "@once-ui-system/core";
-import { baseURL, about, person, work } from "@/resources";
+import { baseURL } from "@/resources";
 import { Projects } from "@/components/work/Projects";
+import { getServerContent, getServerLocale } from "@/resources/server-localization";
 
 export async function generateMetadata() {
+  const { work } = await getServerContent();
   return Meta.generate({
     title: work.title,
     description: work.description,
@@ -12,7 +14,10 @@ export async function generateMetadata() {
   });
 }
 
-export default function Work() {
+export default async function Work() {
+  const { about, person, work, ui } = await getServerContent();
+  const locale = await getServerLocale();
+
   return (
     <Column maxWidth="m" paddingTop="24">
       <Schema
@@ -31,7 +36,18 @@ export default function Work() {
       <Heading marginBottom="l" variant="heading-strong-xl" align="center">
         {work.title}
       </Heading>
-      <Projects />
+      <Heading as="h2" marginBottom="m" variant="heading-strong-l" align="start" marginLeft="l">
+        {ui.workPage.researchPapers}
+      </Heading>
+      <Projects category="research" locale={locale} />
+      <Heading as="h2" marginBottom="m" variant="heading-strong-l" align="start" marginLeft="l">
+        {ui.workPage.thesisDocuments}
+      </Heading>
+      <Projects category="thesis" locale={locale} />
+      <Heading as="h2" marginBottom="m" variant="heading-strong-l" align="start" marginLeft="l">
+        {ui.workPage.projects}
+      </Heading>
+      <Projects category="project" locale={locale} />
     </Column>
   );
 }

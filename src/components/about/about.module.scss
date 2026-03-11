@@ -8,6 +8,19 @@
     }
 }
 
+.studyFocus {
+    font-style: normal;
+    color: var(--study-focus-color) !important;
+    opacity: 0.45;
+}
+
+.skillsRow {
+    justify-content: flex-start !important;
+    align-content: flex-start;
+    row-gap: 0.45rem !important;
+    column-gap: 0.45rem !important;
+}
+
 @media (max-width: breakpoints.$s) {
     .textAlign {
         text-align: center;

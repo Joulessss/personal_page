@@ -5,19 +5,21 @@ import {
   Heading,
   Icon,
   IconButton,
-  Media,
   Tag,
   Text,
   Meta,
   Schema,
   Row,
+  Media,
 } from "@once-ui-system/core";
-import { baseURL, about, person, social } from "@/resources";
+import { baseURL } from "@/resources";
 import TableOfContents from "@/components/about/TableOfContents";
 import styles from "@/components/about/about.module.scss";
 import React from "react";
+import { getServerContent } from "@/resources/server-localization";
 
 export async function generateMetadata() {
+  const { about } = await getServerContent();
   return Meta.generate({
     title: about.title,
     description: about.description,
@@ -27,7 +29,8 @@ export async function generateMetadata() {
   });
 }
 
-export default function About() {
+export default async function About() {
+  const { about, person, social, ui } = await getServerContent();
   const structure = [
     {
       title: about.intro.title,
@@ -47,11 +50,13 @@ export default function About() {
     {
       title: about.technical.title,
       display: about.technical.display,
-      items: about.technical.skills.map((skill) => skill.title),
+      items: about.technical.categories && about.technical.categories.length > 0
+        ? about.technical.categories.map((category) => category.name)
+        : (about.technical.skills ?? []).map((skill) => skill.title),
     },
   ];
   return (
-    <Column maxWidth="m">
+    <Column maxWidth="l">
       <Schema
         as="webPage"
         baseURL={baseURL}
@@ -109,7 +114,7 @@ export default function About() {
             )}
           </Column>
         )}
-        <Column className={styles.blockAlign} flex={9} maxWidth={40}>
+        <Column className={styles.blockAlign} flex={9} maxWidth={65}>
           <Column
             id={about.intro.title}
             fillWidth
@@ -133,7 +138,7 @@ export default function About() {
                 }}
               >
                 <Icon paddingLeft="12" name="calendar" onBackground="brand-weak" />
-                <Row paddingX="8">Schedule a call</Row>
+                <Row paddingX="8">{ui.about.scheduleCall}</Row>
                 <IconButton
                   href={about.calendar.link}
                   data-border="rounded"
@@ -147,7 +152,7 @@ export default function About() {
             </Heading>
             <Text
               className={styles.textAlign}
-              variant="display-default-xs"
+              variant="heading-default-s"
               onBackground="neutral-weak"
             >
               {person.role}
@@ -201,6 +206,7 @@ export default function About() {
               {about.intro.description}
             </Column>
           )}
+
 
           {about.work.display && (
             <>
@@ -273,8 +279,16 @@ export default function About() {
                       {institution.name}
                     </Text>
                     <Text variant="heading-default-xs" onBackground="neutral-weak">
-                      {institution.description}
+                      {institution.major ?? institution.description}
                     </Text>
+                    {institution.focus && (
+                      <Text
+                        variant="body-default-xs"
+                        style={{ color: "rgb(255, 68, 205)", opacity: 0.55 }}
+                      >
+                        {institution.focus}
+                      </Text>
+                    )}
                   </Column>
                 ))}
               </Column>
@@ -292,46 +306,75 @@ export default function About() {
                 {about.technical.title}
               </Heading>
               <Column fillWidth gap="l">
-                {about.technical.skills.map((skill, index) => (
-                  <Column key={`${skill}-${index}`} fillWidth gap="4">
-                    <Text id={skill.title} variant="heading-strong-l">
-                      {skill.title}
-                    </Text>
-                    <Text variant="body-default-m" onBackground="neutral-weak">
-                      {skill.description}
-                    </Text>
-                    {skill.tags && skill.tags.length > 0 && (
-                      <Row wrap gap="8" paddingTop="8">
-                        {skill.tags.map((tag, tagIndex) => (
-                          <Tag key={`${skill.title}-${tagIndex}`} size="l" prefixIcon={tag.icon}>
-                            {tag.name}
-                          </Tag>
-                        ))}
-                      </Row>
-                    )}
-                    {skill.images && skill.images.length > 0 && (
-                      <Row fillWidth paddingTop="m" gap="12" wrap>
-                        {skill.images.map((image, index) => (
-                          <Row
-                            key={index}
-                            border="neutral-medium"
-                            radius="m"
-                            minWidth={image.width}
-                            height={image.height}
-                          >
-                            <Media
-                              enlarge
-                              radius="m"
-                              sizes={image.width.toString()}
-                              alt={image.alt}
-                              src={image.src}
-                            />
+                {about.technical.categories && about.technical.categories.length > 0
+                  ? about.technical.categories.map((category, index) => (
+                      <Column key={`${category.name}-${index}`} fillWidth gap="8">
+                        <Text id={category.name} variant="heading-strong-l">
+                          {category.name}
+                        </Text>
+                        <Row
+                          wrap
+                          gap="8"
+                          horizontal="start"
+                          vertical="center"
+                          className={styles.skillsRow}
+                        >
+                          {category.skills.map((skill, skillIndex) => {
+                            const skillName = typeof skill === "string" ? skill : skill.name;
+                            const skillIcon = typeof skill === "string" ? undefined : skill.icon;
+
+                            return (
+                              <Tag key={`${category.name}-${skillName}-${skillIndex}`} size="s" prefixIcon={skillIcon}>
+                                {skillName}
+                              </Tag>
+                            );
+                          })}
+                        </Row>
+                      </Column>
+                    ))
+                  : about.technical.skills?.map((skill, index) => (
+                      <Column key={`${skill.title}-${index}`} fillWidth gap="8">
+                        <Row fillWidth gap="8" vertical="start">
+                          <Text aria-hidden variant="body-default-l" onBackground="neutral-weak">
+                            •
+                          </Text>
+                          <Text id={skill.title} variant="body-default-l" onBackground="neutral-weak">
+                            <strong>{skill.title}:</strong>{" "}
+                            {skill.description}
+                          </Text>
+                        </Row>
+                        {skill.tags && skill.tags.length > 0 && (
+                          <Row wrap gap="8" paddingLeft="20">
+                            {skill.tags.map((tag, tagIndex) => (
+                              <Tag key={`${skill.title}-${tagIndex}`} size="l" prefixIcon={tag.icon}>
+                                {tag.name}
+                              </Tag>
+                            ))}
                           </Row>
-                        ))}
-                      </Row>
-                    )}
-                  </Column>
-                ))}
+                        )}
+                        {skill.images && skill.images.length > 0 && (
+                          <Row fillWidth gap="12" wrap paddingLeft="20">
+                            {skill.images.map((image, imageIndex) => (
+                              <Row
+                                key={imageIndex}
+                                border="neutral-medium"
+                                radius="m"
+                                minWidth={image.width}
+                                height={image.height}
+                              >
+                                <Media
+                                  enlarge
+                                  radius="m"
+                                  sizes={image.width.toString()}
+                                  alt={image.alt}
+                                  src={image.src}
+                                />
+                              </Row>
+                            ))}
+                          </Row>
+                        )}
+                      </Column>
+                    ))}
               </Column>
             </>
           )}

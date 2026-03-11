@@ -8,7 +8,17 @@ export {
   blog,
   work,
   gallery,
+  ui,
+  localizedContent,
 } from "./content";
+
+export {
+  DEFAULT_LOCALE,
+  LOCALE_COOKIE_NAME,
+  getLocalizedContent,
+  resolveLocale,
+  isLocale,
+} from "./localization";
 
 export {
   display,

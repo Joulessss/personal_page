@@ -7,16 +7,15 @@ import {
   Column,
   Badge,
   Row,
+  Flex,
   Schema,
   Meta,
-  Line,
 } from "@once-ui-system/core";
-import { home, about, person, baseURL, routes } from "@/resources";
-import { Mailchimp } from "@/components";
-import { Projects } from "@/components/work/Projects";
-import { Posts } from "@/components/blog/Posts";
+import { baseURL } from "@/resources";
+import { getServerContent } from "@/resources/server-localization";
 
 export async function generateMetadata() {
+  const { home } = await getServerContent();
   return Meta.generate({
     title: home.title,
     description: home.description,
@@ -26,9 +25,37 @@ export async function generateMetadata() {
   });
 }
 
-export default function Home() {
+export default async function Home() {
+  const { home, about, person, ui } = await getServerContent();
+  const tiles = [
+    {
+      title: ui.home.tiles.roleTitle,
+      description: ui.home.tiles.roleBody,
+      badge: "01",
+      className: "home-matrix-tile--role",
+    },
+    {
+      title: ui.home.tiles.phdTitle,
+      description: ui.home.tiles.phdBody,
+      badge: "02",
+      className: "home-matrix-tile--phd",
+    },
+    {
+      title: ui.home.tiles.skillsTitle,
+      description: ui.home.tiles.skillsBody,
+      badge: "03",
+      className: "home-matrix-tile--skills",
+    },
+    {
+      title: ui.home.tiles.mottoTitle,
+      description: ui.home.tiles.mottoBody,
+      badge: "04",
+      className: "home-matrix-tile--motto",
+    },
+  ];
+
   return (
-    <Column maxWidth="m" gap="xl" paddingY="12" horizontal="center">
+    <Column maxWidth="l" gap="xl" paddingY="12" horizontal="center">
       <Schema
         as="webPage"
         baseURL={baseURL}
@@ -42,8 +69,8 @@ export default function Home() {
           image: `${baseURL}${person.avatar}`,
         }}
       />
-      <Column fillWidth horizontal="center" gap="m">
-        <Column maxWidth="s" horizontal="center" align="center">
+      <Column fillWidth horizontal="center" gap="m" maxWidth="xl">
+        <Column maxWidth="l" horizontal="center" align="center">
           {home.featured.display && (
             <RevealFx
               fillWidth
@@ -53,15 +80,16 @@ export default function Home() {
               paddingLeft="12"
             >
               <Badge
+                className="featured-neon-badge"
                 background="brand-alpha-weak"
-                paddingX="12"
-                paddingY="4"
+                paddingX="20"
+                paddingY="8"
                 onBackground="neutral-strong"
-                textVariant="label-default-s"
+                textVariant="label-default-m"
                 arrow={false}
                 href={home.featured.href}
               >
-                <Row paddingY="2">{home.featured.title}</Row>
+                <Row paddingY="4">{home.featured.title}</Row>
               </Badge>
             </RevealFx>
           )}
@@ -99,32 +127,42 @@ export default function Home() {
             </Button>
           </RevealFx>
         </Column>
+        <Row fillWidth gap="0" s={{ direction: "column" }} className="home-matrix-grid">
+          {tiles.map((tile, index) => (
+            <Flex
+              key={`${tile.title}-${index}`}
+              fillWidth
+              padding="0"
+              border="neutral-alpha-weak"
+              radius="l"
+              overflow="hidden"
+              className={`home-matrix-tile ${tile.className}`}
+            >
+              <Column fillWidth className="home-matrix-content">
+                <Text className="home-matrix-badge" variant="label-default-s">
+                  {tile.badge}
+                </Text>
+                <Heading
+                  as="h3"
+                  align="start"
+                  variant="heading-strong-l"
+                  className="home-matrix-title"
+                >
+                  {tile.title}
+                </Heading>
+                <Text
+                  variant="body-default-l"
+                  align="start"
+                  onBackground="neutral-weak"
+                  className="home-matrix-description"
+                >
+                  {tile.description}
+                </Text>
+              </Column>
+            </Flex>
+          ))}
+        </Row>
       </Column>
-      <RevealFx translateY="16" delay={0.6}>
-        <Projects range={[1, 1]} />
-      </RevealFx>
-      {routes["/blog"] && (
-        <Column fillWidth gap="24" marginBottom="l">
-          <Row fillWidth paddingRight="64">
-            <Line maxWidth={48} />
-          </Row>
-          <Row fillWidth gap="24" marginTop="40" s={{ direction: "column" }}>
-            <Row flex={1} paddingLeft="l" paddingTop="24">
-              <Heading as="h2" variant="display-strong-xs" wrap="balance">
-                Latest from the blog
-              </Heading>
-            </Row>
-            <Row flex={3} paddingX="20">
-              <Posts range={[1, 2]} columns="2" />
-            </Row>
-          </Row>
-          <Row fillWidth paddingLeft="64" horizontal="end">
-            <Line maxWidth={48} />
-          </Row>
-        </Column>
-      )}
-      <Projects range={[2]} />
-      <Mailchimp />
     </Column>
   );
 }

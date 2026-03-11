@@ -5,8 +5,10 @@ import { useEffect, useState } from "react";
 
 import { Fade, Flex, Line, Row, ToggleButton } from "@once-ui-system/core";
 
-import { routes, display, person, about, blog, work, gallery } from "@/resources";
+import { routes, display } from "@/resources";
 import { ThemeToggle } from "./ThemeToggle";
+import { LanguageToggle } from "./LanguageToggle";
+import { useLanguage } from "./LanguageProvider";
 import styles from "./Header.module.scss";
 
 type TimeDisplayProps = {
@@ -44,6 +46,8 @@ export default TimeDisplay;
 
 export const Header = () => {
   const pathname = usePathname() ?? "";
+  const { content } = useLanguage();
+  const { person, about, blog, work, gallery, ui } = content;
 
   return (
     <>
@@ -73,7 +77,7 @@ export const Header = () => {
         }}
       >
         <Row paddingLeft="12" fillWidth vertical="center" textVariant="body-default-s">
-          {display.location && <Row s={{ hide: true }}>{person.location}</Row>}
+          {display.location && <Row s={{ hide: true }}>{ui.header.locationLabel}</Row>}
         </Row>
         <Row fillWidth horizontal="center">
           <Row
@@ -166,12 +170,9 @@ export const Header = () => {
                   </Row>
                 </>
               )}
-              {display.themeSwitcher && (
-                <>
-                  <Line background="neutral-alpha-medium" vert maxHeight="24" />
-                  <ThemeToggle />
-                </>
-              )}
+              <Line background="neutral-alpha-medium" vert maxHeight="24" />
+              <LanguageToggle />
+              {display.themeSwitcher && <ThemeToggle />}
             </Row>
           </Row>
         </Row>

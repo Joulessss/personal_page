@@ -175,8 +175,12 @@ export interface About extends BasePageConfig {
     institutions: Array<{
       /** Institution name */
       name: string;
-      /** Description of studies */
-      description: React.ReactNode;
+      /** Degree or major */
+      major?: React.ReactNode;
+      /** Optional focus area shown below the major */
+      focus?: React.ReactNode;
+      /** Backward-compatible study description */
+      description?: React.ReactNode;
     }>;
   };
   /** Technical skills section */
@@ -185,8 +189,21 @@ export interface About extends BasePageConfig {
     display: boolean;
     /** Title for the technical skills section */
     title: string;
+    /** Optional grouped categories of skills */
+    categories?: Array<{
+      /** Category title */
+      name: string;
+      /** Skills in this category */
+      skills: Array<
+        | string
+        | {
+            name: string;
+            icon?: string;
+          }
+      >;
+    }>;
     /** List of technical skills */
-    skills: Array<{
+    skills?: Array<{
       /** Skill title */
       title: string;
       /** Skill description */

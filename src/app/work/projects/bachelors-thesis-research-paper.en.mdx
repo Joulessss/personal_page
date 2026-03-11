@@ -1,0 +1,72 @@
+---
+title: "Compatibility Model between Encapsulant Compounds and Antioxidants by the Implementation of Machine Learning"
+publishedAt: "2024-09-17"
+summary: "A machine-learning compatibility model was developed to predict optimal matches between antioxidant compounds 
+(ACs) and wall materials (WMs) for encapsulation, reducing reliance on costly trial-and-error experiments. Two datasets
+ describing AC and WM properties were compiled and linked, then enriched with decoy pairs to strengthen incompatibility 
+ detection. Correlation screening, followed by PCA, reduced dimensionality while preserving key information. 
+ A KNN classifier achieved strong performance (accuracy 0.92, sensitivity 0.84, specificity 1.00), 
+effectively distinguishing compatible vs. incompatible combinations."
+category: "research"
+status: "published"
+pdf: "/images/projects/project-01/algorithms-17-00412-v3.pdf"
+pages:
+  - "/images/projects/project-01/pdf-pages/algorithms/page-01.jpg"
+  - "/images/projects/project-01/pdf-pages/algorithms/page-02.jpg"
+  - "/images/projects/project-01/pdf-pages/algorithms/page-03.jpg"
+  - "/images/projects/project-01/pdf-pages/algorithms/page-04.jpg"
+  - "/images/projects/project-01/pdf-pages/algorithms/page-05.jpg"
+  - "/images/projects/project-01/pdf-pages/algorithms/page-06.jpg"
+  - "/images/projects/project-01/pdf-pages/algorithms/page-07.jpg"
+  - "/images/projects/project-01/pdf-pages/algorithms/page-08.jpg"
+  - "/images/projects/project-01/pdf-pages/algorithms/page-09.jpg"
+  - "/images/projects/project-01/pdf-pages/algorithms/page-10.jpg"
+  - "/images/projects/project-01/pdf-pages/algorithms/page-11.jpg"
+  - "/images/projects/project-01/pdf-pages/algorithms/page-12.jpg"
+  - "/images/projects/project-01/pdf-pages/algorithms/page-13.jpg"
+  - "/images/projects/project-01/pdf-pages/algorithms/page-14.jpg"
+images:
+  - "/images/papers/encap_paper.png"
+
+team:
+  - name: "Juliana Quintana Rojas"
+    role: "Author"
+    avatar: "/images/image_avatar.jpeg"
+    linkedIn: "https://www.linkedin.com/in/juliana-quintana-rojas-7b93b4232/"
+  - name: "Rafael Amaya-Gómez"
+    role: "Co-author"
+    avatar: "/images/profile-icon.svg"
+    linkedIn: "https://www.linkedin.com/in/rafael-amaya-g%C3%B3mez-bb10827a/"
+  - name: "Nicolas Ratkovich "
+    role: "Co-author"
+    avatar: "/images/profile-icon.svg"
+    linkedIn: "https://www.linkedin.com/in/nicolasratkovich/"
+  
+---
+
+## Overview
+
+<div className="overview-text">
+
+The compatibility between antioxidant compounds (ACs) and wall materials (WMs) is one of the most crucial aspects 
+of the encapsulation process, as the encapsulated compounds’ stability depends on the affinity between the compounds,
+ which is influenced by their chemical properties. A compatibility model between the encapsulant and antioxidant 
+ chemicals was built using machine learning (ML) to discover optimal matches without costly and time-consuming 
+ trial-and-error experiments. The attributes of the required antioxidant and wall material components were recollected, 
+ and two datasets were constructed. As a result, a tying process was performed to connect both datasets and identify 
+ significant relationships between parameters of ACs and WMs to define the compatibility or incompatibility of the 
+ compounds, as this was necessary to enrich the dataset by incorporating decoys. As a result, a simple statistical 
+ analysis was conducted to examine the indicated correlations between variables, and a Principal Component Analysis
+  (PCA) was performed to reduce the dimensionality of the dataset without sacrificing essential information. 
+  The K-nearest neighbor (KNN) algorithm was used and designed to handle the classification problems of the 
+  compatibility of the combinations to integrate ML in the model. In this way, the model accuracy was 0.92, 
+  with a sensitivity of 0.84 and a specificity of 1. These results indicate that the KNN model performs well,
+  exhibiting high accuracy and correctly classifying  positive and negative combinations as evidenced by the sensitivity and specificity scores.
+
+</div>
+
+## Contribution
+
+- Compile and integrate physicochemical property datasets for ACs and WMs, including generation of decoy (incompatible) pairs.
+- Identify key AC–WM relationships via correlation analysis and reduce feature space using PCA for robust modeling.
+- Train and evaluate a KNN-based classifier to predict compatibility, reporting accuracy, sensitivity, and specificity.

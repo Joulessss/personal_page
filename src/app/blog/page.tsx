@@ -1,9 +1,11 @@
 import { Column, Heading, Meta, Schema } from "@once-ui-system/core";
 import { Mailchimp } from "@/components";
 import { Posts } from "@/components/blog/Posts";
-import { baseURL, blog, person, newsletter } from "@/resources";
+import { baseURL } from "@/resources";
+import { getServerContent } from "@/resources/server-localization";
 
 export async function generateMetadata() {
+  const { blog } = await getServerContent();
   return Meta.generate({
     title: blog.title,
     description: blog.description,
@@ -13,7 +15,9 @@ export async function generateMetadata() {
   });
 }
 
-export default function Blog() {
+export default async function Blog() {
+  const { blog, person, ui } = await getServerContent();
+
   return (
     <Column maxWidth="m" paddingTop="24">
       <Schema
@@ -37,7 +41,7 @@ export default function Blog() {
         <Posts range={[2, 3]} columns="2" thumbnail direction="column" />
         <Mailchimp marginBottom="l" />
         <Heading as="h2" variant="heading-strong-xl" marginLeft="l">
-          Earlier posts
+          {ui.blog.earlierPosts}
         </Heading>
         <Posts range={[4]} columns="2" />
       </Column>

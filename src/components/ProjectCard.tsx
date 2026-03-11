@@ -19,6 +19,9 @@ interface ProjectCardProps {
   description: string;
   avatars: { src: string }[];
   link: string;
+  repo?: string;
+  category?: "research" | "project" | "thesis";
+  hideHero?: boolean;
 }
 
 export const ProjectCard: React.FC<ProjectCardProps> = ({
@@ -29,16 +32,26 @@ export const ProjectCard: React.FC<ProjectCardProps> = ({
   description,
   avatars,
   link,
+  repo,
+  category,
+  hideHero,
 }) => {
+
   return (
     <Column fillWidth gap="m">
-      <Carousel
-        sizes="(max-width: 960px) 100vw, 960px"
-        items={images.map((image) => ({
-          slide: image,
-          alt: title,
-        }))}
-      />
+      {!hideHero && (
+        <Carousel
+          sizes="(max-width: 960px) 100vw, 960px"
+          items={images.map((image) => ({
+            slide: (
+              <div className="work-card-slide">
+                <img src={image} alt={title} className="work-card-image" />
+              </div>
+            ),
+            alt: title,
+          }))}
+        />
+      )}
       <Flex
         s={{ direction: "column" }}
         fillWidth
@@ -78,7 +91,22 @@ export const ProjectCard: React.FC<ProjectCardProps> = ({
                   style={{ margin: "0", width: "fit-content" }}
                   href={link}
                 >
-                  <Text variant="body-default-s">View project</Text>
+                  <Text variant="body-default-s">
+                    {category === "research"
+                      ? "View publication"
+                      : category === "thesis"
+                        ? "View thesis"
+                        : "View project"}
+                  </Text>
+                </SmartLink>
+              )}
+              {repo && (
+                <SmartLink
+                  suffixIcon="arrowUpRightFromSquare"
+                  style={{ margin: "0", width: "fit-content" }}
+                  href={repo}
+                >
+                  <Text variant="body-default-s">View GitHub</Text>
                 </SmartLink>
               )}
             </Flex>

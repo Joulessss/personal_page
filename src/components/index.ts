@@ -7,4 +7,6 @@ export { RouteGuard } from "@/components/RouteGuard";
 export { Providers } from "@/components/Providers";
 export { ScrollToHash } from "@/components/ScrollToHash";
 export { ThemeToggle } from "@/components/ThemeToggle";
+export { LanguageToggle } from "@/components/LanguageToggle";
+export { useLanguage } from "@/components/LanguageProvider";
 export { CustomMDX } from "@/components/mdx";

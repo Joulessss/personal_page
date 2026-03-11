@@ -52,3 +52,473 @@
   --scheme-neutral-600-50: rgba(137,152,159,0.5);
   /*
 }*/
+
+:root {
+  --study-focus-color: rgb(48, 206, 254);
+}
+
+html[data-theme="light"] {
+  --study-focus-color: rgb(48, 206, 254);
+}
+
+html[data-theme="dark"] {
+  --study-focus-color:  rgb(48, 206, 254);
+}
+
+.featured-neon-badge {
+  border: 1px solid rgba(48, 206, 254, 0.65);
+  background: linear-gradient(
+    90deg,
+    rgba(126, 34, 206, 0.9) 0%,
+    rgba(217, 70, 239, 0.85) 45%,
+    rgba(48, 206, 254, 0.8) 100%
+  ) !important;
+  box-shadow:
+    0 0 0 1px rgba(255, 255, 255, 0.08) inset,
+    0 0 16px rgba(217, 70, 239, 0.45),
+    0 0 28px rgba(48, 206, 254, 0.35);
+  backdrop-filter: blur(6px);
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.featured-neon-badge:hover {
+  transform: translateY(-1px);
+  box-shadow:
+    0 0 0 1px rgba(255, 255, 255, 0.12) inset,
+    0 0 20px rgba(217, 70, 239, 0.6),
+    0 0 36px rgba(48, 206, 254, 0.5);
+}
+
+.reference-neon-button {
+  min-width: 18rem;
+  justify-content: center;
+  padding-left: 1.2rem !important;
+  padding-right: 1.2rem !important;
+  border: 1px solid rgba(48, 206, 254, 0.7) !important;
+  background: linear-gradient(
+    90deg,
+    rgba(126, 34, 206, 0.9) 0%,
+    rgba(217, 70, 239, 0.85) 55%,
+    rgba(48, 206, 254, 0.85) 100%
+  ) !important;
+  color: #ffffff !important;
+  box-shadow:
+    0 0 0 1px rgba(255, 255, 255, 0.1) inset,
+    0 0 18px rgba(217, 70, 239, 0.45),
+    0 0 30px rgba(48, 206, 254, 0.35);
+}
+
+.reference-neon-button:hover {
+  transform: translateY(-1px);
+  box-shadow:
+    0 0 0 1px rgba(255, 255, 255, 0.18) inset,
+    0 0 22px rgba(217, 70, 239, 0.58),
+    0 0 36px rgba(48, 206, 254, 0.5);
+}
+
+.overview-text {
+  font-size: 0.9rem;
+  line-height: 1.55;
+  color: var(--neutral-on-background-weak);
+  text-align: justify;
+}
+
+.pdf-carousel {
+  width: 100%;
+}
+
+.pdf-carousel-frame {
+  border-radius: 18px;
+  padding: 12px;
+  background: radial-gradient(
+      120% 120% at 50% 0%,
+      rgba(126, 34, 206, 0.12),
+      transparent 60%
+    ),
+    radial-gradient(
+      120% 120% at 50% 100%,
+      rgba(48, 206, 254, 0.1),
+      transparent 60%
+    );
+  border: 1px solid var(--neutral-alpha-weak);
+  box-shadow: 0 20px 50px rgba(0, 0, 0, 0.25);
+}
+
+.pdf-carousel-spread {
+  background: rgba(0, 0, 0, 0.06);
+  border-radius: 16px;
+  padding: 16px;
+}
+
+.pdf-carousel-page {
+  width: 49%;
+  max-height: 560px;
+  object-fit: contain;
+  background: white;
+  border-radius: 12px;
+  border: 1px solid var(--neutral-alpha-weak);
+  box-shadow: 0 10px 24px rgba(0, 0, 0, 0.18);
+  cursor: zoom-in;
+}
+
+.pdf-carousel-placeholder {
+  background: transparent;
+  border: none;
+  box-shadow: none;
+}
+
+.work-card-image {
+  width: 100%;
+  border-radius: 16px;
+  border: 1px solid var(--neutral-alpha-weak);
+  box-shadow: 0 10px 24px rgba(0, 0, 0, 0.18);
+  cursor: zoom-in;
+}
+
+.work-card-image-button {
+  border: 0;
+  padding: 0;
+  background: transparent;
+  width: 100%;
+  cursor: zoom-in;
+}
+
+.work-card-slide {
+  position: relative;
+}
+
+.work-card-overlay-trigger {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    180deg,
+    rgba(0, 0, 0, 0.05) 0%,
+    rgba(0, 0, 0, 0.55) 100%
+  );
+  color: #fff;
+  border: 0;
+  opacity: 0;
+  transition: opacity 0.2s ease;
+  cursor: pointer;
+}
+
+.work-card-slide:hover .work-card-overlay-trigger {
+  opacity: 1;
+}
+
+.image-lightbox-meta {
+  width: 100%;
+  max-width: 960px;
+  margin: 0 auto;
+  padding: 12px;
+  background: rgba(7, 7, 10, 0.7);
+  border-radius: 12px;
+}
+
+.image-lightbox {
+  position: fixed;
+  inset: 0;
+  z-index: 9999;
+}
+
+.image-lightbox-backdrop {
+  position: absolute;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.7);
+  backdrop-filter: blur(6px);
+}
+
+.image-lightbox-panel {
+  position: absolute;
+  inset: 2%;
+  background: transparent;
+  border: none;
+  box-shadow: none;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.image-lightbox-img {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  border-radius: 12px;
+  background: #0b0b0f;
+  box-shadow:
+    0 0 40px rgba(48, 206, 254, 0.35),
+    0 0 80px rgba(217, 70, 239, 0.25);
+}
+
+.image-lightbox-close {
+  align-self: flex-end;
+}
+
+.work-hero {
+  background: transparent;
+  border-bottom: none;
+  transition: box-shadow 0.25s ease, background 0.25s ease;
+}
+
+.work-hero-inner {
+  padding: 16px 0;
+}
+
+.work-hero:hover {
+  background:
+    radial-gradient(120% 120% at 50% 0%, rgba(126, 34, 206, 0.22), transparent 60%),
+    radial-gradient(120% 120% at 50% 100%, rgba(48, 206, 254, 0.2), transparent 60%);
+  box-shadow: 0 18px 60px rgba(48, 206, 254, 0.12);
+}
+
+.home-vertical-carousel {
+  width: 100%;
+  display: grid;
+  gap: var(--static-space-12);
+  margin: 0 auto;
+  position: relative;
+  overflow: hidden;
+  padding: var(--static-space-16);
+  border-radius: var(--radius-xl);
+}
+
+.home-vertical-track {
+  max-height: 540px;
+  overflow-y: auto;
+  display: grid;
+  gap: var(--static-space-16);
+  padding-right: var(--static-space-8);
+  scroll-snap-type: y mandatory;
+  scrollbar-gutter: stable;
+  justify-items: center;
+  position: relative;
+  z-index: 1;
+}
+
+.home-vertical-item {
+  scroll-snap-align: start;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+}
+
+.home-vertical-link img {
+  width: 100%;
+  height: 220px;
+  object-fit: cover;
+  object-position: center;
+}
+
+.home-vertical-link {
+  display: block;
+  border-radius: var(--radius-xl);
+  overflow: hidden;
+  transition: transform 180ms ease, box-shadow 180ms ease;
+  box-shadow: 0 12px 40px rgba(0, 0, 0, 0.12);
+  cursor: pointer;
+  position: relative;
+  width: 100%;
+}
+
+.home-vertical-link:hover {
+  transform: translateY(-6px) scale(1.02);
+  box-shadow: 0 18px 60px rgba(124, 58, 237, 0.3);
+}
+
+.home-vertical-hovercard {
+  position: absolute;
+  left: 12px;
+  right: 12px;
+  bottom: 12px;
+  padding: 10px 12px;
+  border-radius: 12px;
+  background: rgba(8, 8, 12, 0.78);
+  color: #fff;
+  opacity: 0;
+  transform: translateY(6px);
+  transition: opacity 180ms ease, transform 180ms ease;
+  pointer-events: none;
+  backdrop-filter: blur(6px);
+}
+
+.home-vertical-title {
+  font-weight: 600;
+  font-size: 0.95rem;
+  line-height: 1.2;
+}
+
+.home-vertical-meta {
+  margin-top: 4px;
+  font-size: 0.75rem;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+}
+
+.home-vertical-link:hover .home-vertical-hovercard {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.home-vertical-controls {
+  display: flex;
+  justify-content: space-between;
+  gap: var(--static-space-8);
+  position: relative;
+  z-index: 1;
+}
+
+@media (max-width: 720px) {
+  .home-vertical-carousel {
+    width: min(100%, 560px);
+  }
+}
+
+.home-matrix-grid {
+  width: 100%;
+  display: grid;
+  gap: clamp(10px, 1.4vw, 16px);
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+}
+
+.home-matrix-tile {
+  min-height: clamp(152px, 16vw, 186px);
+  position: relative;
+  isolation: isolate;
+  padding: clamp(14px, 1.8vw, 20px);
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  background:
+    radial-gradient(120% 140% at 100% 100%, rgba(48, 206, 254, 0.14), transparent 70%),
+    radial-gradient(120% 140% at 0% 0%, rgba(126, 34, 206, 0.22), transparent 70%),
+    rgba(9, 13, 24, 0.9);
+  box-shadow:
+    inset 0 1px 0 rgba(255, 255, 255, 0.12),
+    0 10px 26px rgba(0, 0, 0, 0.22);
+  transition: transform 220ms ease, box-shadow 220ms ease, border-color 220ms ease;
+}
+
+.home-matrix-tile::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(180deg, rgba(5, 8, 14, 0.12) 0%, rgba(5, 8, 14, 0.58) 100%);
+  z-index: 0;
+  pointer-events: none;
+}
+
+.home-matrix-tile::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  top: 0;
+  bottom: 0;
+  width: 3px;
+  background: var(--home-tile-accent, rgba(48, 206, 254, 0.8));
+  opacity: 0.8;
+  z-index: 1;
+}
+
+.home-matrix-tile:hover {
+  transform: translateY(-2px);
+  border-color: rgba(48, 206, 254, 0.5);
+  box-shadow:
+    inset 0 1px 0 rgba(255, 255, 255, 0.2),
+    0 14px 34px rgba(0, 0, 0, 0.28),
+    0 0 0 1px rgba(48, 206, 254, 0.16);
+}
+
+.home-matrix-tile > * {
+  position: relative;
+  z-index: 2;
+}
+
+.home-matrix-content {
+  max-width: 44ch;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: flex-start;
+  gap: 8px;
+}
+
+.home-matrix-badge {
+  width: fit-content;
+  padding: 2px 7px;
+  border-radius: 999px;
+  border: 1px solid rgba(255, 255, 255, 0.28);
+  background: rgba(7, 11, 19, 0.72);
+  color: rgba(255, 255, 255, 0.9);
+  letter-spacing: 0.08em;
+  font-weight: 600;
+  font-size: 0.74rem;
+}
+
+.home-matrix-title {
+  max-width: 22ch;
+  line-height: 1.06;
+  letter-spacing: -0.01em;
+  text-align: left !important;
+  font-size: clamp(1.72rem, 2.1vw, 2.18rem) !important;
+}
+
+.home-matrix-description {
+  max-width: 48ch;
+  line-height: 1.32;
+  text-wrap: pretty;
+  text-align: left !important;
+  color: rgba(239, 242, 248, 0.9) !important;
+  font-size: clamp(1.02rem, 1.2vw, 1.24rem) !important;
+}
+
+.home-matrix-tile--role {
+  --home-tile-accent: rgba(56, 189, 248, 0.92);
+  background:
+    radial-gradient(120% 140% at 100% 100%, rgba(56, 189, 248, 0.16), transparent 70%),
+    radial-gradient(120% 140% at 0% 0%, rgba(14, 116, 144, 0.24), transparent 70%),
+    rgba(9, 13, 24, 0.9);
+}
+
+.home-matrix-tile--phd {
+  --home-tile-accent: rgba(129, 140, 248, 0.92);
+  background:
+    radial-gradient(120% 140% at 100% 100%, rgba(129, 140, 248, 0.16), transparent 70%),
+    radial-gradient(120% 140% at 0% 0%, rgba(79, 70, 229, 0.24), transparent 70%),
+    rgba(9, 13, 24, 0.9);
+}
+
+.home-matrix-tile--skills {
+  --home-tile-accent: rgba(16, 185, 129, 0.92);
+  background:
+    radial-gradient(120% 140% at 100% 100%, rgba(16, 185, 129, 0.16), transparent 70%),
+    radial-gradient(120% 140% at 0% 0%, rgba(5, 150, 105, 0.24), transparent 70%),
+    rgba(9, 13, 24, 0.9);
+}
+
+.home-matrix-tile--motto {
+  --home-tile-accent: rgba(232, 121, 249, 0.92);
+  background:
+    radial-gradient(120% 140% at 100% 100%, rgba(232, 121, 249, 0.16), transparent 70%),
+    radial-gradient(120% 140% at 0% 0%, rgba(217, 70, 239, 0.24), transparent 70%),
+    rgba(9, 13, 24, 0.9);
+}
+
+@media (max-width: 900px) {
+  .home-matrix-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .home-matrix-tile {
+    min-height: 158px;
+    padding: 14px;
+  }
+
+  .home-matrix-title {
+    font-size: clamp(1.42rem, 6vw, 1.86rem) !important;
+  }
+
+  .home-matrix-description {
+    max-width: 100%;
+    font-size: clamp(0.98rem, 3.8vw, 1.1rem) !important;
+  }
+}
