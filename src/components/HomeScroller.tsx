@@ -90,7 +90,7 @@ export function HomeScroller({ items }: HomeScrollerProps) {
         <div className="home-vertical-track" ref={trackRef}>
           {items.map((item) => (
             <div key={item.slug} className="home-vertical-item">
-              <SmartLink href={withBasePath(`/work/${item.slug}`)} className="home-vertical-link">
+              <SmartLink href={`/work/${item.slug}`} className="home-vertical-link">
                 <Media
                   src={withBasePath(item.image)}
                   alt={item.title}

@@ -120,7 +120,7 @@ export default async function Project({
       />
       <Column className="work-hero" fillWidth paddingY="24" paddingX="l" horizontal="center">
         <Column className="work-hero-inner" fillWidth maxWidth="l" gap="16" align="center">
-          <SmartLink href={withBasePath("/work")}>
+          <SmartLink href="/work">
             <Text variant="label-strong-m">{ui.workPost.backToProjects}</Text>
           </SmartLink>
           <Heading variant="display-strong-m" wrap="balance">
@@ -166,7 +166,7 @@ export default async function Project({
         <Row gap="16" wrap horizontal="center">
           {post.metadata.link && (post.metadata.category === "research" ? (
             <Button
-              href={withBasePath(post.metadata.link)}
+              href={post.metadata.link}
               className="reference-neon-button"
               data-border="rounded"
               size="l"
@@ -176,7 +176,7 @@ export default async function Project({
             </Button>
           ) : post.metadata.category === "thesis" ? (
             <Button
-              href={withBasePath(post.metadata.link)}
+              href={post.metadata.link}
               className="reference-neon-button"
               data-border="rounded"
               size="l"
@@ -185,12 +185,12 @@ export default async function Project({
               Open Thesis Document
             </Button>
           ) : (
-            <SmartLink href={withBasePath(post.metadata.link)}>
+            <SmartLink href={post.metadata.link}>
               <Text variant="body-default-s">Open source</Text>
             </SmartLink>
           ))}
           {post.metadata.repo && (
-            <SmartLink href={withBasePath(post.metadata.repo)}>
+            <SmartLink href={post.metadata.repo}>
               <Text variant="body-default-s">Open GitHub repository</Text>
             </SmartLink>
           )}

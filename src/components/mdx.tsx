@@ -36,7 +36,7 @@ type CustomLinkProps = React.AnchorHTMLAttributes<HTMLAnchorElement> & {
 function CustomLink({ href, children, ...props }: CustomLinkProps) {
   if (href.startsWith("/")) {
     return (
-      <SmartLink href={withBasePath(href)} {...props}>
+      <SmartLink href={href} {...props}>
         {children}
       </SmartLink>
     );

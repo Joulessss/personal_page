@@ -108,7 +108,7 @@ export default async function Home() {
             <Button
               id="about"
               data-border="rounded"
-              href={withBasePath(about.path)}
+              href={about.path}
               variant="secondary"
               size="m"
               weight="default"

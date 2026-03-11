@@ -9,7 +9,6 @@ import { routes, display } from "@/resources";
 import { ThemeToggle } from "./ThemeToggle";
 import { LanguageToggle } from "./LanguageToggle";
 import { useLanguage } from "./LanguageProvider";
-import { withBasePath } from "@/utils/withBasePath";
 import styles from "./Header.module.scss";
 
 type TimeDisplayProps = {
@@ -99,11 +98,7 @@ export const Header = () => {
           >
             <Row gap="4" vertical="center" textVariant="body-default-s" suppressHydrationWarning>
               {routes["/"] && (
-                <ToggleButton
-                  prefixIcon="home"
-                  href={withBasePath("/")}
-                  selected={normalizedPathname === "/"}
-                />
+                <ToggleButton prefixIcon="home" href="/" selected={normalizedPathname === "/"} />
               )}
               <Line background="neutral-alpha-medium" vert maxHeight="24" />
               {routes["/about"] && (
@@ -111,7 +106,7 @@ export const Header = () => {
                   <Row s={{ hide: true }}>
                     <ToggleButton
                       prefixIcon="person"
-                      href={withBasePath("/about")}
+                      href="/about"
                       label={about.label}
                       selected={normalizedPathname === "/about"}
                     />
@@ -119,7 +114,7 @@ export const Header = () => {
                   <Row hide s={{ hide: false }}>
                     <ToggleButton
                       prefixIcon="person"
-                      href={withBasePath("/about")}
+                      href="/about"
                       selected={normalizedPathname === "/about"}
                     />
                   </Row>
@@ -130,7 +125,7 @@ export const Header = () => {
                   <Row s={{ hide: true }}>
                     <ToggleButton
                       prefixIcon="grid"
-                      href={withBasePath("/work")}
+                      href="/work"
                       label={work.label}
                       selected={normalizedPathname.startsWith("/work")}
                     />
@@ -138,7 +133,7 @@ export const Header = () => {
                   <Row hide s={{ hide: false }}>
                     <ToggleButton
                       prefixIcon="grid"
-                      href={withBasePath("/work")}
+                      href="/work"
                       selected={normalizedPathname.startsWith("/work")}
                     />
                   </Row>
@@ -149,7 +144,7 @@ export const Header = () => {
                   <Row s={{ hide: true }}>
                     <ToggleButton
                       prefixIcon="book"
-                      href={withBasePath("/blog")}
+                      href="/blog"
                       label={blog.label}
                       selected={normalizedPathname.startsWith("/blog")}
                     />
@@ -157,7 +152,7 @@ export const Header = () => {
                   <Row hide s={{ hide: false }}>
                     <ToggleButton
                       prefixIcon="book"
-                      href={withBasePath("/blog")}
+                      href="/blog"
                       selected={normalizedPathname.startsWith("/blog")}
                     />
                   </Row>
@@ -168,7 +163,7 @@ export const Header = () => {
                   <Row s={{ hide: true }}>
                     <ToggleButton
                       prefixIcon="gallery"
-                      href={withBasePath("/gallery")}
+                      href="/gallery"
                       label={gallery.label}
                       selected={normalizedPathname.startsWith("/gallery")}
                     />
@@ -176,7 +171,7 @@ export const Header = () => {
                   <Row hide s={{ hide: false }}>
                     <ToggleButton
                       prefixIcon="gallery"
-                      href={withBasePath("/gallery")}
+                      href="/gallery"
                       selected={normalizedPathname.startsWith("/gallery")}
                     />
                   </Row>
