@@ -2,6 +2,8 @@
 
 import { useEffect, useRef, useState } from "react";
 import { Background, Button, Flex, Media, SmartLink, Text } from "@once-ui-system/core";
+import { SpacingToken } from "@once-ui-system/core";
+import { opacity } from "@once-ui-system/core";
 import { mailchimp } from "@/resources";
 import { useLanguage } from "@/components/LanguageProvider";
 
@@ -53,7 +55,7 @@ export function HomeScroller({ items }: HomeScrollerProps) {
           }}
           gradient={{
             display: mailchimp.effects.gradient.display,
-            opacity: 100,
+            opacity: 100 as opacity,
             x: mailchimp.effects.gradient.x,
             y: mailchimp.effects.gradient.y,
             width: mailchimp.effects.gradient.width,
@@ -64,21 +66,21 @@ export function HomeScroller({ items }: HomeScrollerProps) {
           }}
           dots={{
             display: mailchimp.effects.dots.display,
-            opacity: 30,
-            size: mailchimp.effects.dots.size,
+            opacity: 30 as opacity,
+            size: mailchimp.effects.dots.size as SpacingToken,
             color: mailchimp.effects.dots.color,
           }}
           grid={{
             display: mailchimp.effects.grid.display,
-            opacity: mailchimp.effects.grid.opacity,
+            opacity: mailchimp.effects.grid.opacity as opacity,
             color: mailchimp.effects.grid.color,
             width: mailchimp.effects.grid.width,
             height: mailchimp.effects.grid.height,
           }}
           lines={{
             display: mailchimp.effects.lines.display,
-            opacity: mailchimp.effects.lines.opacity,
-            size: mailchimp.effects.lines.size,
+            opacity: mailchimp.effects.lines.opacity as opacity,
+            size: mailchimp.effects.lines.size as SpacingToken,
             thickness: mailchimp.effects.lines.thickness,
             angle: mailchimp.effects.lines.angle,
             color: mailchimp.effects.lines.color,
