@@ -1,6 +1,7 @@
 "use client";
 
 import { Column, Row, Carousel } from "@once-ui-system/core";
+import { withBasePath } from "@/utils/withBasePath";
 
 type FlipBookProps = {
   pages: string[];
@@ -13,7 +14,7 @@ export default function FlipBook({ pages }: FlipBookProps) {
 
   const pairedPages: Array<[string, string | null]> = [];
   for (let i = 0; i < pages.length; i += 2) {
-    pairedPages.push([pages[i], pages[i + 1] ?? null]);
+    pairedPages.push([withBasePath(pages[i]), pages[i + 1] ? withBasePath(pages[i + 1]) : null]);
   }
 
   return (

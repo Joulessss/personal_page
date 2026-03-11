@@ -6,6 +6,7 @@ import { SpacingToken } from "@once-ui-system/core";
 import { opacity } from "@once-ui-system/core";
 import { mailchimp } from "@/resources";
 import { useLanguage } from "@/components/LanguageProvider";
+import { withBasePath } from "@/utils/withBasePath";
 
 interface HomeScrollerItem {
   slug: string;
@@ -89,8 +90,13 @@ export function HomeScroller({ items }: HomeScrollerProps) {
         <div className="home-vertical-track" ref={trackRef}>
           {items.map((item) => (
             <div key={item.slug} className="home-vertical-item">
-              <SmartLink href={`/work/${item.slug}`} className="home-vertical-link">
-                <Media src={item.image} alt={item.title} aspectRatio="16 / 10" radius="l" />
+              <SmartLink href={withBasePath(`/work/${item.slug}`)} className="home-vertical-link">
+                <Media
+                  src={withBasePath(item.image)}
+                  alt={item.title}
+                  aspectRatio="16 / 10"
+                  radius="l"
+                />
                 <div className="home-vertical-hovercard">
                   <div className="home-vertical-title">{item.title}</div>
                   <Text className="home-vertical-meta" onBackground="neutral-weak">

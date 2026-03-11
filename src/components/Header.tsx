@@ -9,6 +9,7 @@ import { routes, display } from "@/resources";
 import { ThemeToggle } from "./ThemeToggle";
 import { LanguageToggle } from "./LanguageToggle";
 import { useLanguage } from "./LanguageProvider";
+import { withBasePath } from "@/utils/withBasePath";
 import styles from "./Header.module.scss";
 
 type TimeDisplayProps = {
@@ -51,6 +52,8 @@ export const Header = () => {
     basePath && rawPathname.startsWith(basePath)
       ? rawPathname.slice(basePath.length) || "/"
       : rawPathname;
+  const normalizedPathname =
+    pathname.length > 1 && pathname.endsWith("/") ? pathname.slice(0, -1) : pathname;
   const { content } = useLanguage();
   const { person, about, blog, work, gallery, ui } = content;
 
@@ -96,7 +99,11 @@ export const Header = () => {
           >
             <Row gap="4" vertical="center" textVariant="body-default-s" suppressHydrationWarning>
               {routes["/"] && (
-                <ToggleButton prefixIcon="home" href="/" selected={pathname === "/"} />
+                <ToggleButton
+                  prefixIcon="home"
+                  href={withBasePath("/")}
+                  selected={normalizedPathname === "/"}
+                />
               )}
               <Line background="neutral-alpha-medium" vert maxHeight="24" />
               {routes["/about"] && (
@@ -104,16 +111,16 @@ export const Header = () => {
                   <Row s={{ hide: true }}>
                     <ToggleButton
                       prefixIcon="person"
-                      href="/about"
+                      href={withBasePath("/about")}
                       label={about.label}
-                      selected={pathname === "/about"}
+                      selected={normalizedPathname === "/about"}
                     />
                   </Row>
                   <Row hide s={{ hide: false }}>
                     <ToggleButton
                       prefixIcon="person"
-                      href="/about"
-                      selected={pathname === "/about"}
+                      href={withBasePath("/about")}
+                      selected={normalizedPathname === "/about"}
                     />
                   </Row>
                 </>
@@ -123,16 +130,16 @@ export const Header = () => {
                   <Row s={{ hide: true }}>
                     <ToggleButton
                       prefixIcon="grid"
-                      href="/work"
+                      href={withBasePath("/work")}
                       label={work.label}
-                      selected={pathname.startsWith("/work")}
+                      selected={normalizedPathname.startsWith("/work")}
                     />
                   </Row>
                   <Row hide s={{ hide: false }}>
                     <ToggleButton
                       prefixIcon="grid"
-                      href="/work"
-                      selected={pathname.startsWith("/work")}
+                      href={withBasePath("/work")}
+                      selected={normalizedPathname.startsWith("/work")}
                     />
                   </Row>
                 </>
@@ -142,16 +149,16 @@ export const Header = () => {
                   <Row s={{ hide: true }}>
                     <ToggleButton
                       prefixIcon="book"
-                      href="/blog"
+                      href={withBasePath("/blog")}
                       label={blog.label}
-                      selected={pathname.startsWith("/blog")}
+                      selected={normalizedPathname.startsWith("/blog")}
                     />
                   </Row>
                   <Row hide s={{ hide: false }}>
                     <ToggleButton
                       prefixIcon="book"
-                      href="/blog"
-                      selected={pathname.startsWith("/blog")}
+                      href={withBasePath("/blog")}
+                      selected={normalizedPathname.startsWith("/blog")}
                     />
                   </Row>
                 </>
@@ -161,16 +168,16 @@ export const Header = () => {
                   <Row s={{ hide: true }}>
                     <ToggleButton
                       prefixIcon="gallery"
-                      href="/gallery"
+                      href={withBasePath("/gallery")}
                       label={gallery.label}
-                      selected={pathname.startsWith("/gallery")}
+                      selected={normalizedPathname.startsWith("/gallery")}
                     />
                   </Row>
                   <Row hide s={{ hide: false }}>
                     <ToggleButton
                       prefixIcon="gallery"
-                      href="/gallery"
-                      selected={pathname.startsWith("/gallery")}
+                      href={withBasePath("/gallery")}
+                      selected={normalizedPathname.startsWith("/gallery")}
                     />
                   </Row>
                 </>

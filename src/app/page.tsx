@@ -13,6 +13,7 @@ import {
 } from "@once-ui-system/core";
 import { baseURL } from "@/resources";
 import { getServerContent } from "@/resources/server-localization";
+import { withBasePath } from "@/utils/withBasePath";
 
 export async function generateMetadata() {
   const { home } = await getServerContent();
@@ -107,7 +108,7 @@ export default async function Home() {
             <Button
               id="about"
               data-border="rounded"
-              href={about.path}
+              href={withBasePath(about.path)}
               variant="secondary"
               size="m"
               weight="default"
@@ -118,7 +119,7 @@ export default async function Home() {
                   <Avatar
                     marginRight="8"
                     style={{ marginLeft: "-0.75rem" }}
-                    src={person.avatar}
+                    src={withBasePath(person.avatar)}
                     size="m"
                   />
                 )}

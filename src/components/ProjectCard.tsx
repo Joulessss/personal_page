@@ -9,6 +9,7 @@ import {
   SmartLink,
   Text,
 } from "@once-ui-system/core";
+import { withBasePath } from "@/utils/withBasePath";
 
 interface ProjectCardProps {
   href: string;
@@ -37,12 +38,15 @@ export const ProjectCard: React.FC<ProjectCardProps> = ({
   hideHero,
 }) => {
 
+  const normalizedImages = images.map((image) => withBasePath(image));
+  const normalizedAvatars = avatars.map((avatar) => ({ src: withBasePath(avatar.src) }));
+
   return (
     <Column fillWidth gap="m">
       {!hideHero && (
         <Carousel
           sizes="(max-width: 960px) 100vw, 960px"
-          items={images.map((image) => ({
+          items={normalizedImages.map((image) => ({
             slide: (
               <div className="work-card-slide">
                 <img src={image} alt={title} className="work-card-image" />
@@ -69,7 +73,7 @@ export const ProjectCard: React.FC<ProjectCardProps> = ({
         )}
         {(avatars?.length > 0 || description?.trim() || content?.trim()) && (
           <Column flex={7} gap="16">
-            {avatars?.length > 0 && <AvatarGroup avatars={avatars} size="m" reverse />}
+            {normalizedAvatars?.length > 0 && <AvatarGroup avatars={normalizedAvatars} size="m" reverse />}
             {description?.trim() && (
               <Text wrap="balance" variant="body-default-s" onBackground="neutral-weak">
                 {description}
@@ -80,7 +84,7 @@ export const ProjectCard: React.FC<ProjectCardProps> = ({
                 <SmartLink
                   suffixIcon="arrowRight"
                   style={{ margin: "0", width: "fit-content" }}
-                  href={href}
+                  href={withBasePath(href)}
                 >
                   <Text variant="body-default-s">Read case study</Text>
                 </SmartLink>

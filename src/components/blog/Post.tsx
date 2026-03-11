@@ -3,6 +3,7 @@
 import { Card, Column, Media, Row, Avatar, Text } from "@once-ui-system/core";
 import { formatDate } from "@/utils/formatDate";
 import { person } from "@/resources";
+import { withBasePath } from "@/utils/withBasePath";
 
 interface PostProps {
   post: any;
@@ -15,7 +16,7 @@ export default function Post({ post, thumbnail, direction }: PostProps) {
     <Card
       fillWidth
       key={post.slug}
-      href={`/blog/${post.slug}`}
+      href={withBasePath(`/blog/${post.slug}`)}
       transition="micro-medium"
       direction={direction}
       border="transparent"
@@ -32,7 +33,7 @@ export default function Post({ post, thumbnail, direction }: PostProps) {
           border="neutral-alpha-weak"
           cursor="interactive"
           radius="l"
-          src={post.metadata.image}
+          src={withBasePath(post.metadata.image)}
           alt={"Thumbnail of " + post.metadata.title}
           aspectRatio="16 / 9"
         />
@@ -41,7 +42,7 @@ export default function Post({ post, thumbnail, direction }: PostProps) {
         <Column maxWidth={28} paddingY="24" paddingX="l" gap="20" vertical="center">
           <Row gap="24" vertical="center">
             <Row vertical="center" gap="16">
-              <Avatar src={person.avatar} size="s" />
+              <Avatar src={withBasePath(person.avatar)} size="s" />
               <Text variant="label-default-s">{person.name}</Text>
             </Row>
             <Text variant="body-default-xs" onBackground="neutral-weak">

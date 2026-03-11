@@ -17,6 +17,7 @@ import TableOfContents from "@/components/about/TableOfContents";
 import styles from "@/components/about/about.module.scss";
 import React from "react";
 import { getServerContent } from "@/resources/server-localization";
+import { withBasePath } from "@/utils/withBasePath";
 
 export async function generateMetadata() {
   const { about } = await getServerContent();
@@ -98,7 +99,7 @@ export default async function About() {
             flex={3}
             horizontal="center"
           >
-            <Avatar src={person.avatar} size="xl" />
+            <Avatar src={withBasePath(person.avatar)} size="xl" />
             <Row gap="8" vertical="center">
               <Icon onBackground="accent-weak" name="globe" />
               {person.location}
@@ -255,7 +256,7 @@ export default async function About() {
                               radius="m"
                               sizes={image.width.toString()}
                               alt={image.alt}
-                              src={image.src}
+                              src={withBasePath(image.src)}
                             />
                           </Row>
                         ))}
@@ -367,7 +368,7 @@ export default async function About() {
                                   radius="m"
                                   sizes={image.width.toString()}
                                   alt={image.alt}
-                                  src={image.src}
+                                  src={withBasePath(image.src)}
                                 />
                               </Row>
                             ))}

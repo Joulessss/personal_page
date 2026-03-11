@@ -22,6 +22,7 @@ import React from "react";
 import { Posts } from "@/components/blog/Posts";
 import { ShareSection } from "@/components/blog/ShareSection";
 import { getServerContent } from "@/resources/server-localization";
+import { withBasePath } from "@/utils/withBasePath";
 
 export async function generateStaticParams(): Promise<{ slug: string }[]> {
   const posts = getPosts(["src", "app", "blog", "posts"]);
@@ -97,7 +98,7 @@ export default async function Blog({ params }: { params: Promise<{ slug: string 
             }}
           />
           <Column maxWidth="s" gap="16" horizontal="center" align="center">
-            <SmartLink href="/blog">
+            <SmartLink href={withBasePath("/blog")}>
               <Text variant="label-strong-m">{ui.blogPost.backToBlog}</Text>
             </SmartLink>
             <Text variant="body-default-xs" onBackground="neutral-weak" marginBottom="12">
@@ -117,7 +118,7 @@ export default async function Blog({ params }: { params: Promise<{ slug: string 
           </Column>
           <Row marginBottom="32" horizontal="center">
             <Row gap="16" vertical="center">
-              <Avatar size="s" src={person.avatar} />
+              <Avatar size="s" src={withBasePath(person.avatar)} />
               <Text variant="label-default-m" onBackground="brand-weak">
                 {person.name}
               </Text>
@@ -125,7 +126,7 @@ export default async function Blog({ params }: { params: Promise<{ slug: string 
           </Row>
           {post.metadata.image && (
             <Media
-              src={post.metadata.image}
+              src={withBasePath(post.metadata.image)}
               alt={post.metadata.title}
               aspectRatio="16/9"
               priority

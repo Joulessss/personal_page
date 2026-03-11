@@ -2,6 +2,7 @@
 
 import { useEffect, useState } from "react";
 import { Button } from "@once-ui-system/core";
+import { withBasePath } from "@/utils/withBasePath";
 
 type PdfLightboxProps = {
   url: string;
@@ -48,7 +49,7 @@ export default function PdfLightbox({ url, label = "Open PDF" }: PdfLightboxProp
             >
               Close
             </Button>
-            <iframe className="pdf-lightbox-frame" title="PDF Preview" src={url} />
+            <iframe className="pdf-lightbox-frame" title="PDF Preview" src={withBasePath(url)} />
           </div>
         </div>
       )}

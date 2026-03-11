@@ -2,6 +2,7 @@
 
 import { Media, MasonryGrid } from "@once-ui-system/core";
 import { useLanguage } from "@/components/LanguageProvider";
+import { withBasePath } from "@/utils/withBasePath";
 
 export default function GalleryView() {
   const { content } = useLanguage();
@@ -17,7 +18,7 @@ export default function GalleryView() {
           key={index}
           radius="m"
           aspectRatio={image.orientation === "horizontal" ? "16 / 9" : "3 / 4"}
-          src={image.src}
+          src={withBasePath(image.src)}
           alt={image.alt}
         />
       ))}
