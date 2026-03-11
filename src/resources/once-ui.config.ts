@@ -14,7 +14,7 @@ import {
 import { home, person } from "./index";
 
 // IMPORTANT: Replace with your own domain address - it's used for SEO in meta tags and schema
-const baseURL: string = "https://julianaquintana.com";
+const baseURL: string = process.env.NEXT_PUBLIC_BASE_URL || "https://julianaquintana.com";
 
 const routes: RoutesConfig = {
   "/": true,
