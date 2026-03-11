@@ -1,3 +1,5 @@
+"use client";
+
 import {
   Heading,
   Text,
@@ -9,25 +11,14 @@ import {
   Row,
   Flex,
   Schema,
-  Meta,
 } from "@once-ui-system/core";
 import { baseURL } from "@/resources";
-import { getServerContent } from "@/resources/server-localization";
 import { withBasePath } from "@/utils/withBasePath";
+import { useLanguage } from "@/components/LanguageProvider";
 
-export async function generateMetadata() {
-  const { home } = await getServerContent();
-  return Meta.generate({
-    title: home.title,
-    description: home.description,
-    baseURL: baseURL,
-    path: home.path,
-    image: home.image,
-  });
-}
-
-export default async function Home() {
-  const { home, about, person, ui } = await getServerContent();
+export default function Home() {
+  const { content } = useLanguage();
+  const { home, about, person, ui } = content;
   const tiles = [
     {
       title: ui.home.tiles.roleTitle,

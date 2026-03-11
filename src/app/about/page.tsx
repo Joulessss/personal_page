@@ -1,3 +1,5 @@
+"use client";
+
 import {
   Avatar,
   Button,
@@ -7,7 +9,6 @@ import {
   IconButton,
   Tag,
   Text,
-  Meta,
   Schema,
   Row,
   Media,
@@ -16,22 +17,12 @@ import { baseURL } from "@/resources";
 import TableOfContents from "@/components/about/TableOfContents";
 import styles from "@/components/about/about.module.scss";
 import React from "react";
-import { getServerContent } from "@/resources/server-localization";
 import { withBasePath } from "@/utils/withBasePath";
+import { useLanguage } from "@/components/LanguageProvider";
 
-export async function generateMetadata() {
-  const { about } = await getServerContent();
-  return Meta.generate({
-    title: about.title,
-    description: about.description,
-    baseURL: baseURL,
-    image: `/api/og/generate?title=${encodeURIComponent(about.title)}`,
-    path: about.path,
-  });
-}
-
-export default async function About() {
-  const { about, person, social, ui } = await getServerContent();
+export default function About() {
+  const { content } = useLanguage();
+  const { about, person, social, ui } = content;
   const structure = [
     {
       title: about.intro.title,

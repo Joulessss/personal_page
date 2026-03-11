@@ -33,10 +33,8 @@ export const LanguageProvider = ({ children, initialLocale }: LanguageProviderPr
       ?.split("=")[1];
     const nextLocale = resolveLocale(stored ?? cookieValue);
 
-    if (nextLocale !== locale) {
-      setLocaleState(nextLocale);
-    }
-  }, [locale]);
+    setLocaleState((current) => (nextLocale !== current ? nextLocale : current));
+  }, []);
 
   useEffect(() => {
     document.documentElement.lang = locale;
@@ -48,7 +46,6 @@ export const LanguageProvider = ({ children, initialLocale }: LanguageProviderPr
     document.cookie = `${LOCALE_COOKIE_NAME}=${nextLocale}; Path=/; Max-Age=31536000; SameSite=Lax`;
     window.localStorage.setItem(LOCALE_COOKIE_NAME, nextLocale);
     setLocaleState(nextLocale);
-    window.location.reload();
   };
 
   const value = useMemo(
