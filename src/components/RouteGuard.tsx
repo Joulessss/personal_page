@@ -11,7 +11,12 @@ interface RouteGuardProps {
 }
 
 const RouteGuard: React.FC<RouteGuardProps> = ({ children }) => {
-  const pathname = usePathname();
+  const rawPathname = usePathname() ?? "";
+  const basePath = process.env.NEXT_PUBLIC_BASE_PATH ?? "";
+  const pathname =
+    basePath && rawPathname.startsWith(basePath)
+      ? rawPathname.slice(basePath.length) || "/"
+      : rawPathname;
   const [isRouteEnabled, setIsRouteEnabled] = useState(false);
   const [isPasswordRequired, setIsPasswordRequired] = useState(false);
   const [password, setPassword] = useState("");

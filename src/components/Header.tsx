@@ -45,7 +45,12 @@ const TimeDisplay: React.FC<TimeDisplayProps> = ({ timeZone, locale = "en-GB" })
 export default TimeDisplay;
 
 export const Header = () => {
-  const pathname = usePathname() ?? "";
+  const rawPathname = usePathname() ?? "";
+  const basePath = process.env.NEXT_PUBLIC_BASE_PATH ?? "";
+  const pathname =
+    basePath && rawPathname.startsWith(basePath)
+      ? rawPathname.slice(basePath.length) || "/"
+      : rawPathname;
   const { content } = useLanguage();
   const { person, about, blog, work, gallery, ui } = content;
 
