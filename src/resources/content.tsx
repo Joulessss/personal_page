@@ -78,7 +78,7 @@ const personEn: Person = {
   firstName: "Juliana",
   lastName: "Quintana Rojas",
   name: "Juliana Quintana Rojas",
-  role: "PhD Student in Engineering | ML Engineer, Data Scientist & Researcher",
+  role: "Applied ML Engineer | Product Builder, Researcher & PhD Engineer",
   avatar: "/images/image_avatar.jpeg",
   email: "j.quintanar2@outlook.com",
   location: "America/Bogota",
@@ -87,7 +87,7 @@ const personEn: Person = {
 
 const personEs: Person = {
   ...personEn,
-  role: "Estudiante de doctorado en Ingeniería | Ingeniera de ML, científica de datos e investigadora",
+  role: "Ingeniera aplicada de ML | Creadora de producto, investigadora e ingeniera doctoral",
   languages: ["Español", "Inglés"],
 };
 
@@ -128,26 +128,27 @@ const homeEn: Home = {
   path: "/",
   image: "/images/og/home.jpg",
   label: "Home",
-  title: `${personEn.name}'s Portfolio`,
+  title: `${personEn.name} | Applied AI & ML Portfolio`,
   description: `Portfolio website showcasing my work as a ${personEn.role}`,
-  headline: <>Engineering Smarter Decisions Through Data Science &amp; Machine Learning.</>,
+  headline: <>Applied AI, machine learning, and analytics for complex data and real-world decisions.</>,
   featured: {
     display: true,
     title: (
       <Row gap="12" vertical="center">
-        <strong className="ml-4">Research article</strong>{" "}
+        <strong className="ml-4">Live AI product</strong>{" "}
         <Line background="brand-alpha-strong" vert height="20" />
         <Text marginRight="4" onBackground="brand-medium">
-           Latest
+          OphirIAn
         </Text>
       </Row>
     ),
-    href: "/work/stochastic-cost-benefit-optimization-colombian-natural-gas-network",
+    href: "/work/cacao-biosense-ai-ophirian",
   },
   subline: (
     <>
-      I&apos;m Juliana, a researcher and engineer bridging rigorous scientific modeling with modern
-      ML workflows, from data pipelines to deployed solutions, across energy, food, and beyond.
+      I work across industrial systems, food and sensory science, and material-focused datasets,
+      using my chemical and food engineering background to interpret complex data and turn it into
+      deployable AI, ML, and analytics solutions for real decision-making.
     </>
   ),
 };
@@ -158,25 +159,26 @@ const homeEs: Home = {
   label: "Inicio",
   title: `Portafolio de ${personEs.name}`,
   description: `Portafolio profesional donde presento mi trabajo como ${personEs.role}`,
-  headline: <>Decisiones más inteligentes con ciencia de datos y machine learning.</>,
+  headline: <>IA aplicada para interpretar datos complejos y convertirlos en decisiones útiles.</>,
   featured: {
     display: true,
     title: (
       <Row gap="12" vertical="center">
-        <strong className="ml-4">Artículo de investigación</strong>{" "}
+        <strong className="ml-4">Producto de IA en vivo</strong>{" "}
         <Line background="brand-alpha-strong" vert height="20" />
         <Text marginRight="4" onBackground="brand-medium">
-          Último
+          OphirIAn
         </Text>
       </Row>
     ),
-    href: "/work/stochastic-cost-benefit-optimization-colombian-natural-gas-network",
+    href: "/work/cacao-biosense-ai-ophirian",
   },
   subline: (
     <>
-      Soy Juliana, investigadora e ingeniera. Combino modelado científico riguroso con flujos
-      modernos de ML, desde la construcción de pipelines de datos hasta el despliegue de
-      soluciones en energía, alimentos y otros sectores.
+      Trabajo en sistemas industriales, ciencia de alimentos y sensorial, y datos asociados a
+      materiales, usando mi formación en ingeniería química y de alimentos para interpretar datos
+      complejos y convertirlos en soluciones desplegables de IA, ML y analítica para la toma de
+      decisiones.
     </>
   ),
 };
@@ -202,15 +204,19 @@ const aboutEn: About = {
     title: "Introduction",
     description: (
       <>
-        Juliana is a Bogotá-based PhD student in Engineering and ML engineer/data scientist. She
-        builds end-to-end machine learning solutions, from exploratory analysis and feature
-        engineering to deployment-ready workflows, with domain-informed interpretability for
-        strategic decision-making across energy, food, and complex industrial systems.
-
+        I am an applied machine learning engineer, product-minded builder, and researcher in
+        Engineering based in Bogotá, Colombia. I work across domains such as industrial systems,
+        food and sensory science, and material characterization, but my focus is always the same:
+        understanding complex data deeply and turning it into useful, deployable machine learning
+        solutions.
+        {" "}
+        My work combines feature engineering, predictive modeling, NLP, statistical analysis, and
+        data-driven experimentation with APIs and user-facing interfaces. I enjoy taking messy,
+        high-dimensional datasets and transforming them into models and tools that are rigorous,
+        interpretable, and practical for real-world decision-making.
       </>
     ),
   },
-
   work: {
     display: true,
     title: "Work Experience",
@@ -218,39 +224,27 @@ const aboutEn: About = {
       {
         company: "COPA — Universidad de los Andes",
         timeframe: "Aug 2025 - Present",
-        role: "ML Engineer, Data Scientist & Researcher",
+        role: "Applied ML Engineer, Data Scientist & Researcher",
         achievements: [
           <>
-            Design and deploy end-to-end ML and statistical workflows to model stochastic and
-            continuous energy processes, including forecasting pipelines for production use.
+            Built a segment-level georeferenced data product for Colombia&apos;s national gas
+            transmission network, transforming simplified line connections into a
+            topographically consistent representation aligned with physical corridors and
+            elevation profiles.
           </>,
           <>
-            Integrate domain expertise into model interpretability so outputs directly support
-            strategic decisions in energy transportation and distribution systems.
+            Engineered a multidimensional failure-forecasting pipeline with roughly 32,000
+            observations and 80+ static and temporal variables spanning topographic, seismic,
+            climatic, and societal risk factors.
           </>,
           <>
-            Automate data pipelines and analysis workflows to improve reliability, risk analysis,
-            and safety optimization across energy systems.
+            Developed an LLM-assisted NLP workflow to clean, standardize, and classify 20 years of
+            Spanish-language incident reports by cause, replacing manual review with reproducible
+            processing at scale.
           </>,
           <>
-            Develop quantitative decision-support tools and author technical reports and scientific
-            outputs for academic and industry audiences.
-          </>,
-        ],
-        images: [],
-      },
-      {
-        company: "Dept. of Industrial Engineering — Universidad de los Andes",
-        timeframe: "Aug 2025 - Present",
-        role: "PhD Teaching Assistant (Discrete Event Simulation)",
-        achievements: [
-          <>
-            Deliver lectures on discrete event simulation and support students in applied
-            quantitative reasoning and data-driven decision-making.
-          </>,
-          <>
-            Design and evaluate academic assessments aligned with continuous improvement of
-            data-driven pedagogy.
+            Delivered a length-normalized segment-year analytical database that supports survival
+            analysis, machine-learning failure-rate models, and strategic infrastructure planning.
           </>,
         ],
         images: [],
@@ -258,144 +252,203 @@ const aboutEn: About = {
       {
         company: "GDPP — Universidad de los Andes",
         timeframe: "Oct 2023 - Jun 2025",
-        role: "ML Engineer, Data Scientist & Researcher",
+        role: "ML Researcher",
         achievements: [
           <>
-            Built hybrid ML frameworks integrating multimodal data sources to predict complex
-            product quality profiles, with scalability toward production deployment.
+            Led end-to-end ML projects from multimodal scientific data collection and preprocessing
+            through supervised and unsupervised model development, validation, and stakeholder
+            communication.
           </>,
           <>
-            Designed and automated end-to-end pipelines, including data collection, augmentation,
-            feature engineering, and rigorous model validation.
+            Applied XGBoost, clustering, data augmentation, neural networks, and multivariate
+            analysis to predictive modeling problems in food and chemical engineering.
           </>,
           <>
-            Embedded domain expertise into model design and interpretability to improve product and
-            process optimization decisions.
+            Published peer-reviewed work and translated model findings into experimentally grounded
+            decisions for compatibility and sensory-analysis research.
           </>,
           <>
-            Produced peer-reviewed outputs and presented findings in national academic venues.
+            Built production-oriented research assets that later informed deployable AI products and
+            decision-support tools.
           </>,
         ],
         images: [],
       },
       {
-        company: "Dept. of Chemical Engineering — Universidad de los Andes",
-        timeframe: "Oct 2023 - Jun 2025",
-        role: "Graduate Teaching Assistant (Transport Phenomena)",
+        company: "Industrial Engineering & Chemical Engineering Departments — Universidad de los Andes",
+        timeframe: "Oct 2023 - Present",
+        role: "Teaching Assistant (Discrete Event Simulation & Transport Phenomena)",
         achievements: [
           <>
-            Led laboratory sessions focused on experimental design, data collection, and
-            quantitative interpretation of transport phenomena results.
+            Deliver lectures and design assessments in stochastic modeling, simulation,
+            experimental data analysis, and quantitative reasoning for undergraduate and graduate
+            students.
           </>,
           <>
-            Mentored students on lab protocols, analytical reasoning, and technical reporting.
+            Support students in applied problem-solving with an emphasis on reproducible analysis,
+            modeling logic, and technical communication.
           </>,
         ],
         images: [],
       },
     ],
   },
-
-
   studies: {
-  display: true,
-  title: "Studies",
-  institutions: [
-    {
-      name: "Universidad de los Andes",
-      major: <>Ph.D. in Engineering (Aug 2025 - Present)</>,
-      focus: <em>Focused on energy systems, system reliability, failure and risk analysis, 
-      and decision-making through the implementation of machine learning and data-driven solutions.</em>,
-    },
-    {
-      name: "Universidad de los Andes",
-      major: <>M.Sc. in Chemical Engineering (Aug 2023 - Jun 2025)</>,
-      focus: <em>Research centered on bridging electronic sensory analysis and human sensory panels using predictive machine 
-      learning models to support sensory screening and improve cocoa processing for smallholder producers in Colombia.</em>,
-    },
-    {
-      name: "Universidad de los Andes",
-      major: <>B.Sc. in Food Engineering (Aug 2021 - Apr 2024)</>,
-      focus: <em>Focused on experimental research in compound encapsulation to improve the physicochemical and 
-      sensory characteristics of food products.</em>,
-    },
-    {
-      name: "Universidad de los Andes",
-      major: <>B.Sc. in Chemical Engineering (Jan 2018 - Oct 2023)</>,
-      focus: <em>Focused on introducing machine learning and data-driven approaches to support decision-making in encapsulation processes and material compatibility.</em>,
-    },
-  ],
-},
-
+    display: true,
+    title: "Studies",
+    institutions: [
+      {
+        name: "University of California, Berkeley",
+        major: <>Graduated International Student, Summer Courses in ML & AI (2026)</>,
+        focus: (
+          <em>
+            Advanced summer coursework focused on machine learning and artificial intelligence
+            deepening, with international academic training in applied computational methods.
+          </em>
+        ),
+      },
+      {
+        name: "Universidad de los Andes",
+        major: <>Ph.D. in Engineering (Aug 2025 - Present)</>,
+        focus: (
+          <em>
+            Focused on energy systems, reliability, failure analysis, and risk-informed
+            decision-making through machine learning and data products.
+          </em>
+        ),
+      },
+      {
+        name: "Universidad de los Andes",
+        major: <>M.Sc. in Chemical Engineering (Aug 2023 - Jun 2025)</>,
+        focus: (
+          <em>
+            Research on bridging electronic sensory systems and human panels with predictive ML to
+            support quality screening and cocoa-process decisions for Colombian producers.
+          </em>
+        ),
+      },
+      {
+        name: "Universidad de los Andes",
+        major: <>B.Sc. in Food Engineering (Aug 2021 - Apr 2024)</>,
+        focus: (
+          <em>
+            Experimental research in compound encapsulation to improve physicochemical and sensory
+            food-product performance.
+          </em>
+        ),
+      },
+      {
+        name: "Universidad de los Andes",
+        major: <>B.Sc. in Chemical Engineering (Jan 2018 - Oct 2023)</>,
+        focus: (
+          <em>
+            Early research in data-driven decision support for compatibility, encapsulation, and
+            process optimization.
+          </em>
+        ),
+      },
+    ],
+  },
   technical: {
     display: true,
     title: "Technical Skills",
     categories: [
       {
-        name: "Programming & Data Analysis",
+        name: "Applied ML & Product Delivery",
+        skills: [
+          { name: "End-to-end ML Pipelines", icon: "rocket" },
+          { name: "Model Evaluation", icon: "statisticalAnalysis" },
+          { name: "Feature Engineering", icon: "dataScience" },
+          { name: "Experimentation", icon: "experimentalDesign" },
+          { name: "API Integration", icon: "grid" },
+          { name: "Full-stack AI Products", icon: "nextjs" },
+          { name: "Production Deployment", icon: "aws" },
+        ],
+      },
+      {
+        name: "Programming & Data",
         skills: [
           { name: "Python", icon: "python" },
-          { name: "R", icon: "r" },
           { name: "SQL", icon: "sql" },
+          { name: "R", icon: "r" },
           { name: "MATLAB", icon: "matlab" },
-          { name: "Scikit-learn", icon: "machineLearning" },
-          { name: "Pandas", icon: "dataScience" },
+          { name: "pandas", icon: "dataScience" },
           { name: "NumPy", icon: "dataScience" },
-          { name: "Matplotlib", icon: "dataViz" },
-          { name: "Seaborn", icon: "dataViz" },
-          { name: "Flask", icon: "grid" },
-          { name: "Excel", icon: "grid" },
+          { name: "scikit-learn", icon: "machineLearning" },
+          { name: "TensorFlow / Keras", icon: "tensorflow" },
+          { name: "PyTorch", icon: "pytorch" },
+          { name: "Jupyter Notebooks", icon: "grid" },
+          { name: "RStudio", icon: "r" },
+          { name: "matplotlib", icon: "dataViz" },
+          { name: "seaborn", icon: "dataViz" },
         ],
       },
       {
-        name: "Machine Learning & AI",
+        name: "ML & AI",
         skills: [
-          { name: "Supervised Learning", icon: "machineLearning" },
-          { name: "Unsupervised Learning", icon: "machineLearning" },
+          { name: "Random Forest", icon: "machineLearning" },
+          { name: "XGBoost", icon: "machineLearning" },
+          { name: "SVM", icon: "machineLearning" },
+          { name: "MLP", icon: "machineLearning" },
+          { name: "Gaussian Processes", icon: "machineLearning" },
+          { name: "k-means", icon: "machineLearning" },
+          { name: "GMM", icon: "machineLearning" },
+          { name: "kPCA", icon: "multivariateAnalysis" },
+          { name: "VBGMM", icon: "multivariateAnalysis" },
+          { name: "MDPs", icon: "grid" },
+          { name: "Search Problems / CSPs", icon: "grid" },
+          { name: "Active Learning", icon: "experimentalDesign" },
           { name: "Data Augmentation", icon: "experimentalDesign" },
-          { name: "Hybrid ML Frameworks", icon: "machineLearning" },
-          { name: "Predictive Modeling", icon: "predictiveModeling" },
-          { name: "Time Series Analysis", icon: "statisticalAnalysis" },
+          { name: "Held-out Validation", icon: "statisticalAnalysis" },
+          { name: "Cross-validation", icon: "statisticalAnalysis" },
+        ],
+      },
+      {
+        name: "NLP & LLMs",
+        skills: [
+          { name: "LLM-assisted Classification", icon: "rocket" },
+          { name: "Lexicon-based NLP", icon: "book" },
+          { name: "Spanish / English Text Classification", icon: "globe" },
+          { name: "Conversational Agent Design", icon: "grid" },
+        ],
+      },
+      {
+        name: "MLOps & Deployment",
+        skills: [
+          { name: "Docker", icon: "git" },
+          { name: "Kubernetes", icon: "grid" },
+          { name: "MLflow", icon: "rocket" },
+          { name: "AWS", icon: "aws" },
+          { name: "Flask", icon: "grid" },
+          { name: "REST APIs", icon: "grid" },
+          { name: "Next.js / React", icon: "nextjs" },
+          { name: "Frontend / Backend Development", icon: "nextjs" },
+          { name: "SaaS Platform Development", icon: "rocket" },
+        ],
+      },
+      {
+        name: "Statistics & Scientific Modeling",
+        skills: [
+          { name: "PCA", icon: "multivariateAnalysis" },
+          { name: "MCA", icon: "multivariateAnalysis" },
+          { name: "ANOVA", icon: "statisticalAnalysis" },
+          { name: "Multivariate Analysis", icon: "multivariateAnalysis" },
+          { name: "Artificial Neural Networks", icon: "pytorch" },
+          { name: "Bayesian Inference", icon: "statisticalAnalysis" },
+          { name: "Uncertainty Quantification", icon: "statisticalAnalysis" },
+          { name: "Survival Analysis", icon: "statisticalAnalysis" },
           { name: "Stochastic Simulation", icon: "rocket" },
-          { name: "Inferential Statistics", icon: "statisticalAnalysis" },
-          { name: "MLOps", icon: "git" },
+          { name: "Predictive Modeling", icon: "predictiveModeling" },
         ],
       },
       {
-        name: "Data Science & Analytics",
+        name: "Geospatial & Network Analytics",
         skills: [
-          { name: "Data Pipeline Design", icon: "dataScience" },
-          { name: "Feature Engineering", icon: "dataScience" },
-          { name: "Model Validation", icon: "experimentalDesign" },
-          { name: "Data Visualization", icon: "dataViz" },
-          { name: "Decision-Support Systems", icon: "grid" },
-          { name: "ML Interpretability", icon: "dataScience" },
-        ],
-      },
-      {
-        name: "Web & Deployment",
-        skills: [
-          { name: "HTML", icon: "javascript" },
-          { name: "CSS", icon: "grid" },
-          { name: "Web Development", icon: "nextjs" },
-          { name: "Deployment", icon: "aws" },
-          { name: "API Integration", icon: "grid" },
-          { name: "CI/CD Pipelines", icon: "git" },
-        ],
-      },
-      {
-        name: "Automation & Workflow Integration",
-        skills: [
-          { name: "End-to-end ML Automation", icon: "rocket" },
-          { name: "Workflow Orchestration", icon: "rocket" },
-          { name: "Operational ML Integration", icon: "grid" },
-        ],
-      },
-      {
-        name: "Process Simulation & Engineering Tools",
-        skills: [
-          { name: "Aspen Plus", icon: "aspenPlus" },
-          { name: "SuperPro Designer", icon: "superProDesigner" },
+          { name: "QGIS", icon: "globe" },
+          { name: "GIS Feature Extraction", icon: "globe" },
+          { name: "Terrain Raster Integration", icon: "globe" },
+          { name: "Climate Raster Integration", icon: "globe" },
+          { name: "Spatial Network Analysis", icon: "grid" },
         ],
       },
     ],
@@ -412,13 +465,17 @@ const aboutEs: About = {
     title: "Introducción",
     description: (
       <>
-        Juliana es estudiante de doctorado en Ingeniería y se desempeña como ingeniera de ML y
-        científica de datos en Bogotá. Diseña soluciones de machine learning de punta a punta,
-        desde el análisis exploratorio y la ingeniería de variables hasta flujos listos para
-        producción. Además, integra conocimiento de dominio para que los resultados sean
-        interpretables y útiles en la toma de decisiones estratégicas en energía, alimentos y
-        sistemas industriales complejos.
-
+        Soy ingeniera de machine learning aplicada, creadora de productos con enfoque técnico e
+        investigadora en ingeniería, radicada en Bogotá, Colombia. Trabajo en áreas como sistemas
+        industriales, ciencia y análisis sensorial de alimentos, y caracterización de materiales;
+        sin embargo, mi objetivo se mantiene constante: comprender datos complejos en profundidad y
+        convertirlos en soluciones de machine learning útiles, robustas y desplegables.
+        {" "}
+        Mi trabajo integra ingeniería de características, modelado predictivo, procesamiento de
+        lenguaje natural, análisis estadístico y experimentación guiada por datos, junto con el
+        desarrollo de APIs e interfaces orientadas al usuario. Disfruto transformar conjuntos de
+        datos desordenados y de alta dimensionalidad en modelos y herramientas rigurosos,
+        interpretables y prácticos para respaldar la toma de decisiones en contextos reales.
       </>
     ),
   },
@@ -430,40 +487,26 @@ const aboutEs: About = {
       {
         company: "COPA — Universidad de los Andes",
         timeframe: "Ago 2025 - Presente",
-        role: "Ingeniera de ML, científica de datos e investigadora",
+        role: "Ingeniera aplicada de ML, científica de datos e investigadora",
         achievements: [
           <>
-            Diseño y despliegue de flujos de trabajo de ML y estadística de punta a punta para
-            modelar procesos energéticos estocásticos y continuos, incluyendo pipelines de
-            pronóstico para uso en producción.
+            Construcción de un producto de datos georreferenciado a nivel de segmento para la red
+            nacional de transporte de gas en Colombia, transformando conexiones simplificadas en
+            una representación topográficamente coherente y alineada con corredores físicos.
           </>,
           <>
-            Integración de conocimiento de dominio en la interpretabilidad de modelos para apoyar
-            decisiones estratégicas en transporte y distribución de energía.
+            Diseño de un pipeline multidimensional de pronóstico de fallas con cerca de 32.000
+            observaciones y más de 80 variables estáticas y temporales entre factores topográficos,
+            sísmicos, climáticos y sociales.
           </>,
           <>
-            Automatización de pipelines de datos y análisis para mejorar confiabilidad operativa,
-            análisis de riesgo y optimización de seguridad en sistemas energéticos.
+            Desarrollo de un flujo NLP asistido por LLM para limpiar, estandarizar y clasificar 20
+            años de reportes de fallas en español por causa, reemplazando clasificación manual con
+            procesamiento reproducible a escala.
           </>,
           <>
-            Desarrollo de herramientas cuantitativas de apoyo a la toma de decisiones y elaboración de
-            reportes técnicos y científicos para audiencias académicas e industriales.
-          </>,
-        ],
-        images: [],
-      },
-      {
-        company: "Departamento de Ingeniería Industrial — Universidad de los Andes",
-        timeframe: "Ago 2025 - Presente",
-        role: "Asistente Doctoral de Docencia (Simulación de Eventos Discretos)",
-        achievements: [
-          <>
-            Dictado de clases de simulación de eventos discretos y acompañamiento en razonamiento
-            cuantitativo aplicado y toma de decisiones basada en datos.
-          </>,
-          <>
-            Diseño y evaluación de instrumentos académicos alineados con la mejora continua de la
-            enseñanza basada en evidencia.
+            Entrega de una base analítica segmento-año normalizada por longitud para modelos de
+            supervivencia, tasas de falla y planeación estratégica de infraestructura.
           </>,
         ],
         images: [],
@@ -471,39 +514,40 @@ const aboutEs: About = {
       {
         company: "GDPP — Universidad de los Andes",
         timeframe: "Oct 2023 - Jun 2025",
-        role: "Ingeniera de ML, científica de datos e investigadora",
+        role: "Investigadora en ML",
         achievements: [
           <>
-            Construcción de marcos híbridos de ML que integran datos multimodales para
-            predecir perfiles complejos de calidad de producto con enfoque escalable.
+            Liderazgo de proyectos de ML de punta a punta, desde recolección y preprocesamiento de
+            datos multimodales hasta desarrollo, validación y comunicación de modelos.
           </>,
           <>
-            Diseño y automatización de pipelines de punta a punta: recolección y aumento de datos,
-            ingeniería de variables y validación rigurosa de modelos.
+            Aplicación de XGBoost, clustering, aumento de datos, redes neuronales y análisis
+            multivariado a problemas predictivos en alimentos e ingeniería química.
           </>,
           <>
-            Integración de conocimiento de dominio en diseño e interpretabilidad de modelos para
-            mejorar decisiones en optimización de productos y procesos.
+            Publicación de trabajo revisado por pares y traducción de hallazgos en decisiones
+            experimentales para compatibilidad y análisis sensorial.
           </>,
           <>
-            Producción de artículos revisados por pares y presentación de resultados en espacios
-            académicos nacionales.
+            Construcción de activos de investigación con orientación a despliegue que luego
+            alimentaron productos de IA y sistemas de soporte a decisiones.
           </>,
         ],
         images: [],
       },
       {
-        company: "Departamento de Ingeniería Química — Universidad de los Andes",
-        timeframe: "Oct 2023 - Jun 2025",
-        role: "Asistente Graduada de Docencia (Fenómenos de Transporte)",
+        company: "Departamentos de Ingeniería Industrial e Ingeniería Química — Universidad de los Andes",
+        timeframe: "Oct 2023 - Presente",
+        role: "Asistente de Docencia (Simulación de Eventos Discretos y Fenómenos de Transporte)",
         achievements: [
           <>
-            Liderazgo de sesiones de laboratorio centradas en diseño experimental, adquisición de
-            datos e interpretación cuantitativa de resultados.
+            Dictado de clases y diseño de evaluaciones en modelado estocástico, simulación,
+            análisis experimental de datos y razonamiento cuantitativo para estudiantes de pregrado
+            y posgrado.
           </>,
           <>
-            Mentoría a estudiantes en protocolos de laboratorio, razonamiento analítico y
-            elaboración de reportes técnicos.
+            Acompañamiento en resolución de problemas con énfasis en análisis reproducible, lógica
+            de modelado y comunicación técnica.
           </>,
         ],
         images: [],
@@ -511,103 +555,162 @@ const aboutEs: About = {
     ],
   },
   studies: {
-      ...aboutEn.studies,
-  display: true,
-  title: "Estudios",
-  institutions: [
-    {
-      name: "Universidad de los Andes",
-      major: <>Doctorado en Ingeniería (Ago 2025 - Presente)</>,
-      focus: <em>Enfoque en sistemas energéticos, confiabilidad de sistemas, 
-      análisis de fallas y riesgos, y apoyo a la toma de decisiones mediante la implementación de machine learning y soluciones basadas en datos.</em>,
-    },
-    {
-      name: "Universidad de los Andes",
-      major: <>Maestría en Ingeniería Química (Ago 2023 - Jun 2025)</>,
-      focus: <em>Investigación orientada a cerrar la brecha entre análisis sensorial electrónico y paneles sensoriales humanos mediante modelos predictivos 
-      de machine learning, para facilitar la identificación sensorial y mejorar el procesamiento de cacao en pequeños productores de Colombia.</em>,
-    },
-    {
-      name: "Universidad de los Andes",
-      major: <>Pregrado en Ingeniería de Alimentos (Ago 2021 - Abr 2024)</>,
-      focus: <em>Investigación experimental en encapsulación de compuestos para mejorar las propiedades fisicoquímicas y sensoriales de productos alimentarios.</em>,
-    },
-    {
-      name: "Universidad de los Andes",
-      major: <>Pregrado en Ingeniería Química (Ene 2018 - Oct 2023)</>,
-      focus: <em>Investigación en la introducción de enfoques basados en machine learning y ciencia de datos para facilitar la toma de decisiones en procesos de encapsulación y compatibilidad entre materiales.</em>,
-    },
-  ],
-},
+    ...aboutEn.studies,
+    display: true,
+    title: "Estudios",
+    institutions: [
+      {
+        name: "University of California, Berkeley",
+        major: <>International Student graduada, cursos de verano en ML e IA (2026)</>,
+        focus: (
+          <em>
+            Profundización académica de verano en machine learning e inteligencia artificial, con
+            formación internacional en métodos computacionales aplicados.
+          </em>
+        ),
+      },
+      {
+        name: "Universidad de los Andes",
+        major: <>Doctorado en Ingeniería (Ago 2025 - Presente)</>,
+        focus: (
+          <em>
+            Enfoque en sistemas energéticos, confiabilidad, análisis de fallas y toma de decisiones
+            basada en riesgo mediante machine learning y productos de datos.
+          </em>
+        ),
+      },
+      {
+        name: "Universidad de los Andes",
+        major: <>Maestría en Ingeniería Química (Ago 2023 - Jun 2025)</>,
+        focus: (
+          <em>
+            Investigación para cerrar la brecha entre sensores electrónicos y paneles humanos con
+            ML predictivo aplicado a calidad sensorial y procesamiento de cacao.
+          </em>
+        ),
+      },
+      {
+        name: "Universidad de los Andes",
+        major: <>Pregrado en Ingeniería de Alimentos (Ago 2021 - Abr 2024)</>,
+        focus: (
+          <em>
+            Investigación experimental en encapsulación de compuestos para mejorar desempeño
+            fisicoquímico y sensorial de productos alimentarios.
+          </em>
+        ),
+      },
+      {
+        name: "Universidad de los Andes",
+        major: <>Pregrado en Ingeniería Química (Ene 2018 - Oct 2023)</>,
+        focus: (
+          <em>
+            Primeras líneas de investigación en soporte a decisiones con datos para compatibilidad,
+            encapsulación y optimización de procesos.
+          </em>
+        ),
+      },
+    ],
+  },
   technical: {
     title: "Habilidades técnicas",
     display: true,
     categories: [
       {
-        name: "Programación y análisis de datos",
+        name: "ML aplicado y desarrollo de producto",
+        skills: [
+          { name: "Pipelines de ML de punta a punta", icon: "rocket" },
+          { name: "Evaluación de modelos", icon: "statisticalAnalysis" },
+          { name: "Ingeniería de variables", icon: "dataScience" },
+          { name: "Experimentación", icon: "experimentalDesign" },
+          { name: "Integración de APIs", icon: "grid" },
+          { name: "Productos full-stack con IA", icon: "nextjs" },
+          { name: "Despliegue a producción", icon: "aws" },
+        ],
+      },
+      {
+        name: "Programación y datos",
         skills: [
           { name: "Python", icon: "python" },
-          { name: "R", icon: "r" },
           { name: "SQL", icon: "sql" },
+          { name: "R", icon: "r" },
           { name: "MATLAB", icon: "matlab" },
-          { name: "Scikit-learn", icon: "machineLearning" },
-          { name: "Pandas", icon: "dataScience" },
+          { name: "pandas", icon: "dataScience" },
           { name: "NumPy", icon: "dataScience" },
-          { name: "Matplotlib", icon: "dataViz" },
-          { name: "Seaborn", icon: "dataViz" },
-          { name: "Flask", icon: "grid" },
-          { name: "Excel", icon: "grid" },
+          { name: "scikit-learn", icon: "machineLearning" },
+          { name: "TensorFlow / Keras", icon: "tensorflow" },
+          { name: "PyTorch", icon: "pytorch" },
+          { name: "Jupyter Notebooks", icon: "grid" },
+          { name: "RStudio", icon: "r" },
+          { name: "matplotlib", icon: "dataViz" },
+          { name: "seaborn", icon: "dataViz" },
         ],
       },
       {
-        name: "Machine Learning e IA",
+        name: "ML e IA",
         skills: [
-          { name: "Aprendizaje supervisado", icon: "machineLearning" },
-          { name: "Aprendizaje no supervisado", icon: "machineLearning" },
+          { name: "Random Forest", icon: "machineLearning" },
+          { name: "XGBoost", icon: "machineLearning" },
+          { name: "SVM", icon: "machineLearning" },
+          { name: "MLP", icon: "machineLearning" },
+          { name: "Procesos Gaussianos", icon: "machineLearning" },
+          { name: "k-means", icon: "machineLearning" },
+          { name: "GMM", icon: "machineLearning" },
+          { name: "kPCA", icon: "multivariateAnalysis" },
+          { name: "VBGMM", icon: "multivariateAnalysis" },
+          { name: "MDPs", icon: "grid" },
+          { name: "Problemas de búsqueda / CSPs", icon: "grid" },
+          { name: "Active Learning", icon: "experimentalDesign" },
           { name: "Aumento de datos", icon: "experimentalDesign" },
-          { name: "Marcos híbridos de ML", icon: "machineLearning" },
-          { name: "Modelado predictivo", icon: "predictiveModeling" },
-          { name: "Series de tiempo", icon: "statisticalAnalysis" },
+          { name: "Validación held-out", icon: "statisticalAnalysis" },
+          { name: "Validación cruzada", icon: "statisticalAnalysis" },
+        ],
+      },
+      {
+        name: "NLP y LLMs",
+        skills: [
+          { name: "Clasificación asistida por LLM", icon: "rocket" },
+          { name: "NLP basado en léxicos", icon: "book" },
+          { name: "Clasificación de texto en español e inglés", icon: "globe" },
+          { name: "Diseño de agentes conversacionales", icon: "grid" },
+        ],
+      },
+      {
+        name: "MLOps y despliegue",
+        skills: [
+          { name: "Docker", icon: "git" },
+          { name: "Kubernetes", icon: "grid" },
+          { name: "MLflow", icon: "rocket" },
+          { name: "AWS", icon: "aws" },
+          { name: "Flask", icon: "grid" },
+          { name: "REST APIs", icon: "grid" },
+          { name: "Next.js / React", icon: "nextjs" },
+          { name: "Desarrollo frontend / backend", icon: "nextjs" },
+          { name: "Plataformas SaaS", icon: "rocket" },
+        ],
+      },
+      {
+        name: "Estadística y modelado científico",
+        skills: [
+          { name: "PCA", icon: "multivariateAnalysis" },
+          { name: "MCA", icon: "multivariateAnalysis" },
+          { name: "ANOVA", icon: "statisticalAnalysis" },
+          { name: "Análisis multivariado", icon: "multivariateAnalysis" },
+          { name: "Redes neuronales artificiales", icon: "pytorch" },
+          { name: "Inferencia bayesiana", icon: "statisticalAnalysis" },
+          { name: "Cuantificación de incertidumbre", icon: "statisticalAnalysis" },
+          { name: "Análisis de supervivencia", icon: "statisticalAnalysis" },
           { name: "Simulación estocástica", icon: "rocket" },
-          { name: "Estadística inferencial", icon: "statisticalAnalysis" },
-          { name: "MLOps", icon: "git" },
+          { name: "Modelado predictivo", icon: "predictiveModeling" },
         ],
       },
       {
-        name: "Ciencia de datos y analítica",
+        name: "Geoespacial y análisis de redes",
         skills: [
-          { name: "Diseño de pipelines", icon: "dataScience" },
-          { name: "Ingeniería de variables", icon: "dataScience" },
-          { name: "Validación de modelos", icon: "experimentalDesign" },
-          { name: "Visualización de datos", icon: "dataViz" },
-          { name: "Sistemas de soporte a decisiones", icon: "grid" },
-          { name: "Interpretabilidad de ML", icon: "dataScience" },
-        ],
-      },
-      {
-        name: "Web y despliegue",
-        skills: [
-          { name: "HTML", icon: "javascript" },
-          { name: "CSS", icon: "grid" },
-          { name: "Desarrollo web", icon: "nextjs" },
-          { name: "Despliegue", icon: "aws" },
-          { name: "Integración de APIs", icon: "grid" },
-          { name: "Pipelines CI/CD", icon: "git" },
-        ],
-      },
-      {
-        name: "Automatización e integración de flujos",
-        skills: [
-          { name: "Automatización de ML de punta a punta", icon: "rocket" },
-          { name: "Orquestación de flujos de trabajo", icon: "rocket" },
-          { name: "Integración operativa de ML", icon: "grid" },
-        ],
-      },
-      {
-        name: "Simulación y herramientas de ingeniería",
-        skills: [
-          { name: "Aspen Plus", icon: "aspenPlus" },
-          { name: "SuperPro Designer", icon: "superProDesigner" },
+          { name: "QGIS", icon: "globe" },
+          { name: "Extracción de variables GIS", icon: "globe" },
+          { name: "Integración de raster de terreno", icon: "globe" },
+          { name: "Integración de raster climático", icon: "globe" },
+          { name: "Análisis espacial de redes", icon: "grid" },
         ],
       },
     ],
@@ -631,15 +734,15 @@ const blogEs: Blog = {
 const workEn: Work = {
   path: "/work",
   label: "Work",
-  title: `Projects – ${personEn.name}`,
-  description: `Design and dev projects by ${personEn.name}`,
+  title: "AI Products, Research & Technical Work",
+  description: "Applied machine learning products, publications, and technical systems across industrial, scientific, and data-intensive applications.",
 };
 
 const workEs: Work = {
   path: "/work",
   label: "Proyectos",
-  title: `Proyectos – ${personEs.name}`,
-  description: `Proyectos de diseño y desarrollo por ${personEs.name}`,
+  title: "Productos de IA, Investigación y Trabajo Técnico",
+  description: "Productos de machine learning aplicado, publicaciones y sistemas técnicos en aplicaciones industriales, científicas y de datos complejos.",
 };
 
 const galleryEn: Gallery = {
@@ -710,14 +813,14 @@ const uiEn: UiCopy = {
     projectLabel: "Project",
     thesisLabel: "Thesis",
     tiles: {
-      roleTitle: "PhD Student | ML Engineer, Data Scientist & Researcher",
-      roleBody: "End-to-end ML workflows, from data pipelines to deployed decision-support tools.",
-      phdTitle: "PhD in Engineering",
-      phdBody: "Doctoral research focused on energy systems, reliability, and risk-informed decision-making.",
-      skillsTitle: "Core Skills",
-      skillsBody: "Machine learning, predictive modeling, experimental design, and data visualization.",
-      mottoTitle: "Motivation",
-      mottoBody: "Transforming data into decisions that improve real-world processes.",
+      roleTitle: "Applied ML Engineer | Product Builder",
+      roleBody: "Live AI systems spanning multimodal modeling, deployment, and stakeholder-ready interpretation.",
+      phdTitle: "Cross-domain Practice",
+      phdBody: "Applied work across industrial systems, food and sensory science, and material-focused data problems.",
+      skillsTitle: "Technical Breadth",
+      skillsBody: "ML, NLP, geospatial analytics, MLOps, and scientific experimentation in one stack.",
+      mottoTitle: "Operating Principle",
+      mottoBody: "Build useful intelligence systems, not isolated models.",
     },
   },
   blog: {
@@ -735,9 +838,9 @@ const uiEn: UiCopy = {
     relatedProjects: "Related projects",
   },
   workPage: {
-    researchPapers: "Research Papers",
+    researchPapers: "Research Systems",
     thesisDocuments: "Thesis Documents",
-    projects: "Projects",
+    projects: "Live Products & Projects",
   },
   about: {
     scheduleCall: "Schedule a call",
@@ -769,14 +872,14 @@ const uiEs: UiCopy = {
     projectLabel: "Proyecto",
     thesisLabel: "Tesis",
     tiles: {
-      roleTitle: "Estudiante de doctorado | Ingeniera de ML, científica de datos e investigadora",
-      roleBody: "De los datos al despliegue: creo flujos de trabajo de ML para apoyar decisiones.",
-      phdTitle: "Doctorado en Ingeniería",
-      phdBody: "Investigación doctoral enfocada en sistemas energéticos, confiabilidad y toma de decisiones basada en riesgo.",
-      skillsTitle: "Habilidades clave",
-      skillsBody: "Aprendizaje automático, modelado predictivo, diseño experimental y visualización de datos.",
-      mottoTitle: "Motivación",
-      mottoBody: "Convierto datos en decisiones que mejoran procesos reales.",
+      roleTitle: "Ingeniera aplicada de ML | Creadora de producto",
+      roleBody: "Sistemas de IA en vivo con modelado multimodal, despliegue e interpretación para usuarios reales.",
+      phdTitle: "Práctica en múltiples dominios",
+      phdBody: "Trabajo aplicado en sistemas industriales, ciencia de alimentos y sensorial, y problemas de datos asociados a materiales.",
+      skillsTitle: "Amplitud técnica",
+      skillsBody: "ML, NLP, analítica geoespacial, MLOps y experimentación científica en un mismo stack.",
+      mottoTitle: "Principio de trabajo",
+      mottoBody: "Construir sistemas de inteligencia útiles, no modelos aislados.",
     },
   },
   blog: {
@@ -794,9 +897,9 @@ const uiEs: UiCopy = {
     relatedProjects: "Proyectos relacionados",
   },
   workPage: {
-    researchPapers: "Artículos de investigación",
+    researchPapers: "Sistemas de investigación",
     thesisDocuments: "Tesis",
-    projects: "Proyectos",
+    projects: "Productos y proyectos en vivo",
   },
   about: {
     scheduleCall: "Agendar una llamada",

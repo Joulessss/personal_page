@@ -113,6 +113,7 @@ export default function About() {
             minHeight="160"
             vertical="center"
             marginBottom="32"
+            className={styles.introPanel}
           >
             {about.calendar.display && (
               <Row
@@ -194,7 +195,13 @@ export default function About() {
           </Column>
 
           {about.intro.display && (
-            <Column textVariant="body-default-l" fillWidth gap="m" marginBottom="xl">
+            <Column
+              textVariant="body-default-l"
+              fillWidth
+              gap="m"
+              marginBottom="xl"
+              className={styles.surfaceCard}
+            >
               {about.intro.description}
             </Column>
           )}
@@ -207,7 +214,11 @@ export default function About() {
               </Heading>
               <Column fillWidth gap="l" marginBottom="40">
                 {about.work.experiences.map((experience, index) => (
-                  <Column key={`${experience.company}-${experience.role}-${index}`} fillWidth>
+                  <Column
+                    key={`${experience.company}-${experience.role}-${index}`}
+                    fillWidth
+                    className={styles.surfaceCard}
+                  >
                     <Row fillWidth horizontal="between" vertical="end" marginBottom="4">
                       <Text id={experience.company} variant="heading-strong-l">
                         {experience.company}
@@ -266,7 +277,12 @@ export default function About() {
               </Heading>
               <Column fillWidth gap="l" marginBottom="40">
                 {about.studies.institutions.map((institution, index) => (
-                  <Column key={`${institution.name}-${index}`} fillWidth gap="4">
+                  <Column
+                    key={`${institution.name}-${index}`}
+                    fillWidth
+                    gap="4"
+                    className={styles.surfaceCard}
+                  >
                     <Text id={institution.name} variant="heading-strong-l">
                       {institution.name}
                     </Text>
@@ -274,10 +290,7 @@ export default function About() {
                       {institution.major ?? institution.description}
                     </Text>
                     {institution.focus && (
-                      <Text
-                        variant="body-default-xs"
-                        style={{ color: "rgb(255, 68, 205)", opacity: 0.55 }}
-                      >
+                      <Text variant="body-default-xs" className={styles.studyFocus}>
                         {institution.focus}
                       </Text>
                     )}
@@ -300,7 +313,12 @@ export default function About() {
               <Column fillWidth gap="l">
                 {about.technical.categories && about.technical.categories.length > 0
                   ? about.technical.categories.map((category, index) => (
-                      <Column key={`${category.name}-${index}`} fillWidth gap="8">
+                      <Column
+                        key={`${category.name}-${index}`}
+                        fillWidth
+                        gap="8"
+                        className={styles.surfaceCard}
+                      >
                         <Text id={category.name} variant="heading-strong-l">
                           {category.name}
                         </Text>

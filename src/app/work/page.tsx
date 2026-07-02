@@ -21,7 +21,7 @@ export default async function Work() {
   const postsEs = getPosts(["src", "app", "work", "projects"], "es");
 
   return (
-    <Column maxWidth="m" paddingTop="24">
+    <Column maxWidth="xl" paddingTop="24" fillWidth>
       <Schema
         as="webPage"
         baseURL={baseURL}

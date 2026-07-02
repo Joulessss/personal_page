@@ -44,6 +44,7 @@ export function Projects({ range, exclude, category, hideHero, locale = "en" }: 
           avatars={post.metadata.team?.map((member) => ({ src: member.avatar })) || []}
           link={post.metadata.link || ""}
           repo={post.metadata.repo || ""}
+          publishedAt={post.metadata.publishedAt}
           category={post.metadata.category}
           hideHero={hideHero}
         />

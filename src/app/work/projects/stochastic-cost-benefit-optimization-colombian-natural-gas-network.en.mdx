@@ -1,7 +1,7 @@
 ---
-title: "Stochastic Cost-Benefit Optimization for the Colombian Natural Gas Network"
+title: "Predictive Failure Modeling of the Colombian Natural Gas Network: Integrating Topographic, Climatic, Natural and Societal Risk Proxies through Machine Learning"
 publishedAt: "2026-03-11"
-summary: "Decision-support framework for Colombian natural gas planning that integrates topographic realism, machine-learning failure forecasting, and Monte Carlo N-1 simulations under stochastic uncertainty."
+summary: "Decision-support framework for Colombian natural gas planning that combines geospatial network reconstruction, LLM-assisted failure classification, machine-learning forecasting, and Monte Carlo N-1 simulation under stochastic uncertainty."
 category: "research"
 images:
 team:
@@ -13,21 +13,24 @@ team:
 
 ## Overview
 
-This research presents a **stochastic cost-benefit optimization** framework for the **Colombian natural gas network**, designed to transition national energy planning from traditional deterministic methods toward a **topographically accurate decision-support system**.
+This project develops a **stochastic cost-benefit optimization** framework for the **Colombian natural gas network**, but its foundation is a much broader data and modeling effort: reconstructing the network physically, transforming historical incidents into usable labels, and generating the analytical base required for failure forecasting and risk-aware planning.
 
-The study addresses critical gaps in current planning by the Energy and Mining Planning Unit (UPME), which often neglects **stochastic dynamics**, topographic realism, and the simultaneous operational uncertainty of supply and transportation pipelines.
+The work addresses critical gaps in current planning by the Energy and Mining Planning Unit (UPME), where deterministic representations often understate **stochastic dynamics**, **topographic realism**, and the simultaneous uncertainty affecting supply and transport infrastructure.
 
 ## Methodology
 
-The proposed approach integrates **altimetric profiles**, spatial topology, and **spatio-temporal failure forecasting** using machine learning to predict future incidents based on historical trends and external variables.
+The proposed approach integrates **network reconstruction**, **geospatial feature engineering**, **LLM-assisted NLP**, and **stochastic simulation** into one decision-support pipeline.
 
 Key components include:
 
-- **System Representation:** Updating georeferenced network data with topographic and topological characteristics to ensure a physically coherent representation of pipeline dynamics.
-- **Deterministic Planning:** Establishing a base-case optimization benchmark for production, transportation, and supply decisions under normal operating conditions.
-- **Risk and Failure Modeling:** Using **unsupervised learning** to uncover latent failure patterns and **supervised models** to forecast future failures based on historical data from entities such as TGI and ANLA.
-- **Decision Support:** Executing **Monte Carlo-based $N-1$ simulations** to perform probabilistic assessments of system performance under disruption scenarios.
+- **System Representation:** Rebuilt a segment-level georeferenced data product for Colombia&apos;s national transmission system, aligning simplified line connections with physical corridors and elevation profiles.
+- **Feature Pipeline:** Engineered a modeling base with approximately **32,000 observations** and **80+ static and temporal variables** spanning topographic, seismic, climatic, and societal risk factors.
+- **Incident Intelligence:** Built an **LLM-assisted NLP workflow** to clean, standardize, and classify **20 years of Spanish-language failure reports** by cause, replacing manual categorization with scalable processing.
+- **Analytical Base:** Delivered a **length-normalized segment-year database** to support downstream survival analysis and machine-learning failure-rate forecasting.
+- **Decision Support:** Re-evaluated planning scenarios under **Monte Carlo N-1 simulations** to assess operational risk, shortage costs, and transport-capacity decisions under uncertainty.
 
 ## Outcome
 
-The optimization model is re-evaluated under stochastic conditions to quantify the cost implications of supply shortages and rationing, determining optimal production and transport capacities to improve **reliability and energy security** in the national system.
+The result is a planning framework that connects infrastructure realism with data-driven forecasting, making it possible to compare deterministic and stochastic decisions using a technically coherent representation of the network.
+
+In practice, the project supports **reliability assessment**, **failure prioritization**, and **energy-security planning** by turning fragmented infrastructure and incident data into a forecasting-ready system for operators, researchers, and policy stakeholders.

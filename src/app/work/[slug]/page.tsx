@@ -185,9 +185,15 @@ export default async function Project({
               Open Thesis Document
             </Button>
           ) : (
-            <SmartLink href={post.metadata.link}>
-              <Text variant="body-default-s">Open source</Text>
-            </SmartLink>
+            <Button
+              href={post.metadata.link}
+              className="reference-neon-button"
+              data-border="rounded"
+              size="l"
+              variant="secondary"
+            >
+              Open Project
+            </Button>
           ))}
           {post.metadata.repo && (
             <SmartLink href={post.metadata.repo}>

@@ -1,7 +1,7 @@
 ---
-title: "Optimización Estocástica Costo-Beneficio para la Red de Gas Natural en Colombia"
+title: "Modelado Predictivo de Fallas de la Red de Gas Natural de Colombia: Integración de Proxies de Riesgo Topográfico, Climático, Natural y Social mediante Machine Learning"
 publishedAt: "2026-03-11"
-summary: "Marco de soporte a decisiones para la planeación del gas natural en Colombia, integrando realismo topográfico, pronóstico de fallas con aprendizaje automático y simulaciones Monte Carlo N-1 bajo incertidumbre."
+summary: "Marco de soporte a decisiones para la planeación del gas natural en Colombia que combina reconstrucción geoespacial de red, clasificación de fallas asistida por LLM, pronóstico con machine learning y simulación Monte Carlo N-1 bajo incertidumbre."
 category: "research"
 images:
 team:
@@ -13,22 +13,24 @@ team:
 
 ## Resumen
 
-Esta investigación propone un marco de **optimización estocástica costo-beneficio** para la **red de gas natural de Colombia**, orientado a pasar de enfoques determinísticos tradicionales a un sistema de soporte a decisiones con **coherencia física y topográfica**.
+Este proyecto desarrolla un marco de **optimización estocástica costo-beneficio** para la **red de gas natural de Colombia**, pero su base es un esfuerzo más amplio de datos y modelado: reconstruir físicamente la red, transformar incidentes históricos en etiquetas utilizables y generar la base analítica necesaria para pronóstico de fallas y planeación con riesgo.
 
-El estudio aborda vacíos críticos de la planeación actual (UPME), donde suelen omitirse la **dinámica estocástica**, el realismo topográfico y la incertidumbre operativa simultánea en suministro y transporte.
+El trabajo aborda vacíos críticos de la planeación actual (UPME), donde los esquemas determinísticos suelen subestimar la **dinámica estocástica**, el **realismo topográfico** y la incertidumbre simultánea que afecta la oferta y el transporte.
 
 ## Metodología
 
-La propuesta integra **perfiles altimétricos**, topología espacial y **pronóstico espacio-temporal de fallas** con aprendizaje automático para anticipar incidentes futuros a partir de datos históricos y variables externas.
+La propuesta integra **reconstrucción de red**, **ingeniería de variables geoespaciales**, **NLP asistido por LLM** y **simulación estocástica** dentro de un mismo pipeline de soporte a decisiones.
 
 Componentes principales:
 
-- **Representación del sistema:** Actualización de datos georreferenciados con características topográficas y topológicas para representar de forma consistente la dinámica de los gasoductos.
-- **Planeación determinística:** Definición de un caso base de optimización para decisiones de producción, transporte y abastecimiento en condiciones normales.
-- **Modelado de riesgo y fallas:** Uso de **aprendizaje no supervisado** para detectar patrones latentes y de modelos **supervisados** para pronóstico de fallas con datos históricos (p. ej., TGI y ANLA).
-- **Soporte a decisiones:** Ejecución de simulaciones **Monte Carlo con criterio N-1** para evaluar probabilísticamente el desempeño del sistema ante distintos escenarios de disrupción.
+- **Representación del sistema:** Reconstrucción de un producto de datos georreferenciado a nivel de segmento para el sistema nacional de transporte, alineando conexiones simplificadas con corredores físicos y perfiles de elevación.
+- **Pipeline de variables:** Ingeniería de una base de modelado con aproximadamente **32.000 observaciones** y **más de 80 variables** estáticas y temporales entre factores topográficos, sísmicos, climáticos y sociales.
+- **Inteligencia sobre incidentes:** Construcción de un flujo **NLP asistido por LLM** para limpiar, estandarizar y clasificar **20 años de reportes de fallas en español** por causa, reemplazando categorización manual por procesamiento escalable.
+- **Base analítica:** Entrega de una **base segmento-año normalizada por longitud** para análisis de supervivencia y pronóstico de tasas de falla con machine learning.
+- **Soporte a decisiones:** Reevaluación de escenarios mediante simulaciones **Monte Carlo con criterio N-1** para cuantificar riesgo operativo, costos de desabastecimiento y decisiones de capacidad bajo incertidumbre.
 
-## Resultado esperado
+## Resultado
 
-El modelo se reevalúa bajo condiciones estocásticas para cuantificar el costo de desabastecimiento y racionamiento, y estimar capacidades óptimas de producción y transporte que fortalezcan la **confiabilidad** y la **seguridad energética** nacional.
+El resultado es un marco de planeación que conecta realismo físico de infraestructura con pronóstico basado en datos, haciendo posible comparar decisiones determinísticas y estocásticas usando una representación técnicamente coherente de la red.
 
+En la práctica, el proyecto aporta a la **evaluación de confiabilidad**, la **priorización de fallas** y la **planeación de seguridad energética**, convirtiendo datos fragmentados de infraestructura e incidentes en un sistema listo para pronóstico para operadores, investigadores y tomadores de decisión.

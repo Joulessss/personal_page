@@ -7,7 +7,9 @@ import {
   Flex,
   Heading,
   SmartLink,
+  Tag,
   Text,
+  Row,
 } from "@once-ui-system/core";
 import { useLanguage } from "@/components/LanguageProvider";
 import { withBasePath } from "@/utils/withBasePath";
@@ -22,6 +24,7 @@ interface ProjectCardProps {
   avatars: { src: string }[];
   link: string;
   repo?: string;
+  publishedAt?: string;
   category?: "research" | "project" | "thesis";
   hideHero?: boolean;
 }
@@ -35,6 +38,7 @@ export const ProjectCard: React.FC<ProjectCardProps> = ({
   avatars,
   link,
   repo,
+  publishedAt,
   category,
   hideHero,
 }) => {
@@ -45,62 +49,88 @@ export const ProjectCard: React.FC<ProjectCardProps> = ({
           readCaseStudy: "Leer caso de estudio",
           viewPublication: "Ver publicación",
           viewThesis: "Ver tesis",
-          viewProject: "Ver proyecto",
+          viewProject: "Abrir proyecto",
           viewGitHub: "Ver GitHub",
+          research: "Investigación",
+          thesis: "Tesis",
+          project: "Producto",
         }
       : {
           readCaseStudy: "Read case study",
           viewPublication: "View publication",
           viewThesis: "View thesis",
-          viewProject: "View project",
+          viewProject: "Open project",
           viewGitHub: "View GitHub",
+          research: "Research",
+          thesis: "Thesis",
+          project: "Product",
         };
 
   const normalizedImages = images.map((image) => withBasePath(image));
   const normalizedAvatars = avatars.map((avatar) => ({ src: withBasePath(avatar.src) }));
+  const year = publishedAt ? new Date(publishedAt).getFullYear().toString() : undefined;
+  const categoryLabel =
+    category === "research"
+      ? labels.research
+      : category === "thesis"
+        ? labels.thesis
+        : labels.project;
 
   return (
-    <Column fillWidth gap="m">
+    <Column fillWidth gap="m" className="project-command-card">
       {!hideHero && (
-        <Carousel
-          sizes="(max-width: 960px) 100vw, 960px"
-          items={normalizedImages.map((image) => ({
-            slide: (
-              <div className="work-card-slide">
-                <img src={image} alt={title} className="work-card-image" />
-              </div>
-            ),
-            alt: title,
-          }))}
-        />
+        <div className="project-command-media">
+          <Carousel
+            sizes="(max-width: 960px) 100vw, 960px"
+            items={normalizedImages.map((image) => ({
+              slide: (
+                <div className="work-card-slide">
+                  <img src={image} alt={title} className="work-card-image" />
+                </div>
+              ),
+              alt: title,
+            }))}
+          />
+        </div>
       )}
       <Flex
         s={{ direction: "column" }}
         fillWidth
         paddingX="s"
-        paddingTop="12"
+        paddingTop="16"
         paddingBottom="24"
         gap="l"
+        className="project-command-body"
       >
         {title && (
-          <Flex flex={5}>
+          <Column flex={5} gap="12">
+            <Row gap="8" wrap>
+              <Tag size="s">{categoryLabel}</Tag>
+              {year && <Tag size="s">{year}</Tag>}
+            </Row>
             <Heading as="h2" wrap="balance" variant="heading-strong-xl">
               {title}
             </Heading>
-          </Flex>
+          </Column>
         )}
         {(avatars?.length > 0 || description?.trim() || content?.trim()) && (
           <Column flex={7} gap="16">
             {normalizedAvatars?.length > 0 && <AvatarGroup avatars={normalizedAvatars} size="m" reverse />}
             {description?.trim() && (
-              <Text wrap="balance" variant="body-default-s" onBackground="neutral-weak">
+              <Text
+                wrap="balance"
+                variant="body-default-m"
+                onBackground="neutral-weak"
+                className="project-command-summary"
+              >
                 {description}
               </Text>
             )}
-            <Flex gap="24" wrap>
+            <Flex gap="12" wrap className="project-command-links">
               {content?.trim() && (
                 <SmartLink
                   suffixIcon="arrowRight"
+                  className="project-command-link"
                   style={{ margin: "0", width: "fit-content" }}
                   href={href}
                 >
@@ -110,6 +140,7 @@ export const ProjectCard: React.FC<ProjectCardProps> = ({
               {link && (
                 <SmartLink
                   suffixIcon="arrowUpRightFromSquare"
+                  className="project-command-link"
                   style={{ margin: "0", width: "fit-content" }}
                   href={link}
                 >
@@ -125,6 +156,7 @@ export const ProjectCard: React.FC<ProjectCardProps> = ({
               {repo && (
                 <SmartLink
                   suffixIcon="arrowUpRightFromSquare"
+                  className="project-command-link"
                   style={{ margin: "0", width: "fit-content" }}
                   href={repo}
                 >

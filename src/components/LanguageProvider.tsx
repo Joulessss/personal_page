@@ -7,6 +7,7 @@ import {
   LOCALE_COOKIE_NAME,
   resolveLocale,
 } from "@/resources/localization";
+import { useRouter } from "next/navigation";
 
 type LanguageContextValue = {
   locale: Locale;
@@ -23,6 +24,7 @@ type LanguageProviderProps = {
 
 export const LanguageProvider = ({ children, initialLocale }: LanguageProviderProps) => {
   const [locale, setLocaleState] = useState<Locale>(initialLocale);
+  const router = useRouter();
 
   useEffect(() => {
     const stored = window.localStorage.getItem(LOCALE_COOKIE_NAME);
@@ -46,6 +48,7 @@ export const LanguageProvider = ({ children, initialLocale }: LanguageProviderPr
     document.cookie = `${LOCALE_COOKIE_NAME}=${nextLocale}; Path=/; Max-Age=31536000; SameSite=Lax`;
     window.localStorage.setItem(LOCALE_COOKIE_NAME, nextLocale);
     setLocaleState(nextLocale);
+    router.refresh();
   };
 
   const value = useMemo(
